@@ -901,6 +901,7 @@
               "type": "_section-content",
               "settings": {
                 "use_grid_container_max_width": false,
+                "enable_sticky": false,
                 "mobile_alignment": "",
                 "desktop_alignment": "",
                 "vertical_alignment": "flex-start",
@@ -1297,6 +1298,7 @@
           "type": "_section-content",
           "settings": {
             "use_grid_container_max_width": false,
+            "enable_sticky": false,
             "mobile_alignment": "left",
             "desktop_alignment": "left",
             "vertical_alignment": "space-between",
@@ -1541,6 +1543,7 @@
           "type": "_section-content",
           "settings": {
             "use_grid_container_max_width": true,
+            "enable_sticky": false,
             "mobile_alignment": "",
             "desktop_alignment": "",
             "vertical_alignment": "flex-start",
@@ -2690,6 +2693,7 @@
           "static": true,
           "settings": {
             "use_grid_container_max_width": true,
+            "enable_sticky": false,
             "mobile_alignment": "left",
             "desktop_alignment": "left",
             "vertical_alignment": "flex-start",
@@ -3034,6 +3038,7 @@
           "type": "_section-content",
           "settings": {
             "use_grid_container_max_width": false,
+            "enable_sticky": false,
             "mobile_alignment": "",
             "desktop_alignment": "",
             "vertical_alignment": "flex-start",
@@ -3354,6 +3359,7 @@
               "type": "_section-content",
               "settings": {
                 "use_grid_container_max_width": false,
+                "enable_sticky": false,
                 "mobile_alignment": "",
                 "desktop_alignment": "",
                 "vertical_alignment": "flex-start",
@@ -4023,6 +4029,7 @@
                   "static": true,
                   "settings": {
                     "use_grid_container_max_width": false,
+                    "enable_sticky": false,
                     "mobile_alignment": "center",
                     "desktop_alignment": "center",
                     "vertical_alignment": "center",
@@ -4366,6 +4373,7 @@
                   "static": true,
                   "settings": {
                     "use_grid_container_max_width": false,
+                    "enable_sticky": true,
                     "mobile_alignment": "left",
                     "desktop_alignment": "left",
                     "vertical_alignment": "flex-start",
@@ -4619,9 +4627,9 @@
         "desktop_alignment": "left",
         "color_scheme": "scheme-1",
         "top_spacing_mobile": 45,
-        "bottom_spacing_mobile": 0,
+        "bottom_spacing_mobile": 45,
         "top_spacing_desktop": 49,
-        "bottom_spacing_desktop": 0,
+        "bottom_spacing_desktop": 49,
         "bg_color": "",
         "section_divider_top": "",
         "section_divider_bottom": "line",

@@ -76,6 +76,24 @@
       }
     {%- endif -%}
 
+    {%- if block.settings.enable_sticky -%}
+      #shopify-block-{{ block.id }} {
+        align-self: flex-start
+      }
+      @media (max-width: 1023px) {
+        #shopify-block-{{ block.id }} {
+          position: sticky;
+          top: var(--top-offset-mobile);
+        }
+      }
+      @media (min-width: 1024px) {
+        #shopify-block-{{ block.id }} {
+          position: sticky;
+          top: var(--top-offset);
+        }
+      }
+    {%- endif -%}
+
   </style>
   {%- render "settings__block-layout-controls" -%}
   {%- content_for "blocks" -%}
@@ -95,6 +113,16 @@
         "type": "checkbox",
         "id": "use_grid_container_max_width",
         "label": "Use Grid Container Max Width",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "Sticky Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_sticky",
+        "label": "Enable Sticky",
         "default": false
       },
       {
