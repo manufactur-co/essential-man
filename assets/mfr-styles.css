@@ -3252,9 +3252,19 @@
       width: 33.333%;
     }
   }
+  .large\:w-\[36\%\] {
+    @media (width >= 1024px) {
+      width: 36%;
+    }
+  }
   .large\:w-\[40\%\] {
     @media (width >= 1024px) {
       width: 40%;
+    }
+  }
+  .large\:w-\[64\%\] {
+    @media (width >= 1024px) {
+      width: 64%;
     }
   }
   .large\:w-\[68\%\] {
