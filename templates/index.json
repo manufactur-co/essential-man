@@ -98,6 +98,7 @@
                       "settings": {
                         "heading": "Products worth keeping.",
                         "disable_animation": false,
+                        "enable_nobr": false,
                         "header_style": "h4",
                         "header_tag": "h2",
                         "font_family": "",
@@ -473,6 +474,7 @@
               "settings": {
                 "heading": "When the product is right, the routine takes care of itself.",
                 "disable_animation": false,
+                "enable_nobr": false,
                 "header_style": "h2",
                 "header_tag": "h2",
                 "font_family": "",
@@ -1062,6 +1064,7 @@
               "settings": {
                 "heading": "Two Products. One System.",
                 "disable_animation": false,
+                "enable_nobr": true,
                 "header_style": "h1",
                 "header_tag": "h2",
                 "font_family": "",
@@ -1210,6 +1213,7 @@
               "settings": {
                 "heading": "Formulated to earn its place in your routine.",
                 "disable_animation": false,
+                "enable_nobr": false,
                 "header_style": "h1",
                 "header_tag": "h2",
                 "font_family": "",
@@ -1599,6 +1603,7 @@
               "settings": {
                 "heading": "Explore the System",
                 "disable_animation": false,
+                "enable_nobr": true,
                 "header_style": "h1",
                 "header_tag": "h2",
                 "font_family": "",
@@ -2018,6 +2023,7 @@
                       "settings": {
                         "heading": "A routine you keep. Not one you keep replacing.",
                         "disable_animation": false,
+                        "enable_nobr": false,
                         "header_style": "h2",
                         "header_tag": "h2",
                         "font_family": "",
@@ -2279,6 +2285,7 @@
               "settings": {
                 "heading": "From the men using it everyday.",
                 "disable_animation": false,
+                "enable_nobr": false,
                 "header_style": "h1",
                 "header_tag": "h2",
                 "font_family": "",
@@ -2659,6 +2666,7 @@
                       "settings": {
                         "heading": "See what the formula is built on",
                         "disable_animation": false,
+                        "enable_nobr": false,
                         "header_style": "h2",
                         "header_tag": "h2",
                         "font_family": "",
