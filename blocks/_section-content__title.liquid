@@ -41,8 +41,10 @@
     {% unless disable_animation %}
       data-split-text="fadeUp"
     {% endunless %}>
-    {% render 'shortcode-renderer',
-      text: text %}
+    {%- capture rendered_text -%}
+      {%- render 'shortcode-renderer', text: text -%}
+    {%- endcapture -%}
+    {%- render 'helper__nobr-wrap', text: rendered_text -%}
   </div>
 </{{ block.settings.header_tag }}>
 

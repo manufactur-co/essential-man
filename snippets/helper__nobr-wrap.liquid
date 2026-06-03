@@ -1,0 +1,19 @@
+{% comment %}
+    Wraps the last 2 words (excluding HTML tags) of rendered HTML in a <nobr> tag.
+
+    Parameters:
+    - text: rendered HTML string
+{% endcomment %}
+{%- assign plain_text = text | strip_html | strip -%}
+{%- assign words = plain_text | split: ' ' -%}
+{%- assign word_count = words | size -%}
+{%- if word_count >= 2 -%}
+  {%- assign last_word = words | last -%}
+  {%- assign second_last_index = word_count | minus: 2 -%}
+  {%- assign second_last_word = words[second_last_index] -%}
+  {%- assign last_two = second_last_word | append: ' ' | append: last_word -%}
+  {%- assign nobr_wrapped = '<nobr>' | append: last_two | append: '</nobr>' -%}
+  {{ text | replace: last_two, nobr_wrapped }}
+{%- else -%}
+  {{ text }}
+{%- endif -%}
