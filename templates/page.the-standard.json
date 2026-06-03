@@ -48,7 +48,7 @@
             "hero_slide_standard_aQ3xPm": {
               "type": "_hero-section__slide",
               "settings": {
-                "image_mobile": "shopify://shop_images/the-standard-hero-image-mobile.webp",
+                "image_mobile": "shopify://shop_images/the-standard-hero-mobile.webp",
                 "image_desktop": "shopify://shop_images/the-standard-hero-image-desktop.webp",
                 "lazyload_image": false,
                 "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 21%, rgba(0, 0, 0, 0) 76%, rgba(0, 0, 0, 0.5) 100%)"
