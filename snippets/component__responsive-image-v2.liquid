@@ -73,7 +73,7 @@
 
 {%- if lazyload -%}
   {%- assign _lowres = _desktop_img | image_url: width: 20 -%}
-  <picture class="w-full">
+  <picture class="w-full lozad">
     {%- if _mobile_img != blank -%}
       <source
         media="(max-width: 1023px)"
