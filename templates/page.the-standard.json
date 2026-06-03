@@ -2322,7 +2322,7 @@
             "cta_ingrd_Et7qSv": {
               "type": "_section-content__text",
               "settings": {
-                "text": "<p><strong>SEE THE FULL INGREDIENT LIST FOR </strong><a href=\"#\" title=\"#\"><strong>TEXTURE POWDER</strong></a><strong> AND </strong><a href=\"#\" title=\"#\"><strong>MATTE CLAY</strong></a><strong>.</strong></p>",
+                "text": "<p><strong>SEE THE FULL INGREDIENT LIST FOR </strong><a href=\"/products/texture-powder#ingredients\" title=\"/products/texture-powder#ingredients\"><strong>TEXTURE POWDER</strong></a><strong> AND </strong><a href=\"/products/matte-clay#ingredients\" title=\"/products/matte-clay#ingredients\"><strong>MATTE CLAY</strong></a><strong>.</strong></p>",
                 "disable_animation": false,
                 "text_style": "bold",
                 "font_family": "custom-font-name-1",
