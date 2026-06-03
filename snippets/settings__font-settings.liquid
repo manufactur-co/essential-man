@@ -1,13 +1,13 @@
 {%- if block.settings.enable_font_settings -%}
   <style>
-    #shopify-block-{{ block.id }} {
+    #shopify-block-{{ block.id }} .section-text {
       {%- if block.settings.font_case != blank -%}
         text-transform: {{ block.settings.font_case }};
       {%- endif -%}
     }
 
     @media (max-width: 1023px) {
-      #shopify-block-{{ block.id }} {
+      #shopify-block-{{ block.id }} .section-text {
         {%- if block.settings.font_size_mobile != blank and block.settings.font_size_mobile != 0 -%}
           font-size: {{ block.settings.font_size_mobile }}px;
         {%- endif -%}
@@ -24,7 +24,7 @@
     }
 
     @media (min-width: 1024px) {
-      #shopify-block-{{ block.id }} {
+      #shopify-block-{{ block.id }} .section-text {
         {%- if block.settings.font_size_desktop != blank and block.settings.font_size_desktop != 0 -%}
           font-size: {{ block.settings.font_size_desktop }}px;
         {%- endif -%}

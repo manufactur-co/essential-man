@@ -39,6 +39,7 @@
     {% endif %}
   }
 </style>
+{%- render "settings__font-settings" -%}
 {%- render "settings__block-layout-controls" -%}
 
 <div
@@ -108,6 +109,117 @@
           }
         ],
         "default": ""
+      },
+      {
+        "type": "header",
+        "content": "Font Settings"
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_font_settings",
+        "label": "Override Font Styles",
+        "default": false
+      },
+      {
+        "type": "select",
+        "id": "font_case",
+        "label": "Text Transform",
+        "options": [
+          { "value": "", "label": "Default" },
+          { "value": "capitalize", "label": "Capitalize" },
+          { "value": "uppercase", "label": "Uppercase" },
+          { "value": "lowercase", "label": "Lowercase" }
+        ],
+        "default": "",
+        "visible_if": "{{ block.settings.enable_font_settings }}"
+      },
+      {
+        "type": "header",
+        "content": "Mobile Font Settings"
+      },
+      {
+        "type": "number",
+        "id": "font_size_mobile",
+        "label": "Font Size - Mobile",
+        "default": 0,
+        "visible_if": "{{ block.settings.enable_font_settings }}"
+      },
+      {
+        "type": "number",
+        "id": "line_height_mobile",
+        "label": "Line Height - Mobile",
+        "default": 0,
+        "visible_if": "{{ block.settings.enable_font_settings }}"
+      },
+      {
+        "type": "number",
+        "id": "letter_spacing_mobile",
+        "label": "Letter Spacing - Mobile",
+        "default": 0,
+        "visible_if": "{{ block.settings.enable_font_settings }}"
+      },
+      {
+        "type": "select",
+        "id": "font_weight_mobile",
+        "label": "Font Weight - Mobile",
+        "options": [
+          { "value": "", "label": "Default" },
+          { "value": "100", "label": "100 - Thin" },
+          { "value": "200", "label": "200 - Extra Light" },
+          { "value": "300", "label": "300 - Light" },
+          { "value": "400", "label": "400 - Regular" },
+          { "value": "500", "label": "500 - Medium" },
+          { "value": "600", "label": "600 - Semi Bold" },
+          { "value": "700", "label": "700 - Bold" },
+          { "value": "800", "label": "800 - Extra Bold" },
+          { "value": "900", "label": "900 - Black" }
+        ],
+        "default": "",
+        "visible_if": "{{ block.settings.enable_font_settings }}"
+      },
+      {
+        "type": "header",
+        "content": "Desktop Font Settings"
+      },
+      {
+        "type": "number",
+        "id": "font_size_desktop",
+        "label": "Font Size - Desktop",
+        "default": 0,
+        "visible_if": "{{ block.settings.enable_font_settings }}"
+      },
+      {
+        "type": "number",
+        "id": "line_height_desktop",
+        "label": "Line Height - Desktop",
+        "default": 0,
+        "visible_if": "{{ block.settings.enable_font_settings }}"
+      },
+      {
+        "type": "number",
+        "id": "letter_spacing_desktop",
+        "label": "Letter Spacing - Desktop",
+        "default": 0,
+        "visible_if": "{{ block.settings.enable_font_settings }}"
+      },
+      {
+        "type": "select",
+        "id": "font_weight_desktop",
+        "label": "Font Weight - Desktop",
+        "options": [
+          { "value": "", "label": "Default" },
+          { "value": "100", "label": "100 - Thin" },
+          { "value": "200", "label": "200 - Extra Light" },
+          { "value": "300", "label": "300 - Light" },
+          { "value": "400", "label": "400 - Regular" },
+          { "value": "500", "label": "500 - Medium" },
+          { "value": "600", "label": "600 - Semi Bold" },
+          { "value": "700", "label": "700 - Bold" },
+          { "value": "800", "label": "800 - Extra Bold" },
+          { "value": "900", "label": "900 - Black" }
+        ],
+        "default": "",
+        "visible_if": "{{ block.settings.enable_font_settings }}"
       },
       {
         "type": "header",
