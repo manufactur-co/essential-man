@@ -169,6 +169,7 @@
                       "settings": {
                         "heading": "YOU NOTICED. SO DID WE",
                         "disable_animation": false,
+                        "enable_nobr": false,
                         "header_style": "h3",
                         "header_tag": "h1",
                         "font_family": "",
@@ -275,7 +276,7 @@
             "width_mobile_custom": "",
             "width_mobile_unit": "px",
             "width_desktop": true,
-            "width_desktop_value": 42,
+            "width_desktop_value": 39,
             "width_desktop_custom": "",
             "width_desktop_unit": "%",
             "max_width_mobile": false,
@@ -422,7 +423,7 @@
             "text_small_CdEF56": {
               "type": "_section-content__text",
               "settings": {
-                "text": "<p><strong>Essential Man was built to hold the product to a real standard. The one you should have had.</strong></p>",
+                "text": "<p><strong>ESSENTIAL MAN WAS BUILT TO HOLD THE PRODUCT TO A REAL STANDARD. THE ONE YOU SHOULD HAVE HAD.</strong></p>",
                 "disable_animation": false,
                 "text_style": "regular",
                 "font_family": "custom-font-name-2",
@@ -502,7 +503,7 @@
             "width_mobile_custom": "",
             "width_mobile_unit": "px",
             "width_desktop": true,
-            "width_desktop_value": 58,
+            "width_desktop_value": 61,
             "width_desktop_custom": "",
             "width_desktop_unit": "%",
             "max_width_mobile": false,
@@ -546,6 +547,7 @@
               "settings": {
                 "heading": "Men's grooming has a standards problem.",
                 "disable_animation": false,
+                "enable_nobr": false,
                 "header_style": "h1",
                 "header_tag": "h2",
                 "font_family": "",
@@ -719,6 +721,7 @@
                       "settings": {
                         "heading": "Held to the standard you already live by",
                         "disable_animation": false,
+                        "enable_nobr": false,
                         "header_style": "h2",
                         "header_tag": "h2",
                         "font_family": "",
@@ -874,6 +877,7 @@
               "settings": {
                 "heading": "Every ingredient earns its place.",
                 "disable_animation": false,
+                "enable_nobr": false,
                 "header_style": "h1",
                 "header_tag": "h2",
                 "font_family": "",
@@ -1321,6 +1325,7 @@
               "settings": {
                 "heading": "What stays out matters as much as what goes in.",
                 "disable_animation": false,
+                "enable_nobr": false,
                 "header_style": "h2",
                 "header_tag": "h2",
                 "font_family": "",
@@ -1841,6 +1846,7 @@
               "settings": {
                 "heading": "SCENT IS A FORMULATION DECISION.",
                 "disable_animation": false,
+                "enable_nobr": false,
                 "header_style": "h1",
                 "header_tag": "h2",
                 "font_family": "",
@@ -2496,6 +2502,7 @@
               "settings": {
                 "heading": "Everything in the formula. No omissions.",
                 "disable_animation": false,
+                "enable_nobr": false,
                 "header_style": "h2",
                 "header_tag": "h2",
                 "font_family": "",
@@ -2722,6 +2729,7 @@
                       "settings": {
                         "heading": "THE STANDARD IS THE PRODUCT.",
                         "disable_animation": false,
+                        "enable_nobr": false,
                         "header_style": "h2",
                         "header_tag": "h2",
                         "font_family": "",
