@@ -647,7 +647,7 @@
             "image_video_banner_image_slide_8LJ46U": {
               "type": "_image-video-banner__image-slide",
               "settings": {
-                "mobile_image": "shopify://shop_images/em-image-mobile-2.webp",
+                "mobile_image": "shopify://shop_images/Content_Block_1.webp",
                 "desktop_image": "shopify://shop_images/em-image-desktop-2.webp",
                 "lazyload": true,
                 "enable_overlay": true,
