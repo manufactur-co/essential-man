@@ -2923,7 +2923,7 @@
                       "name": "Section Button",
                       "settings": {
                         "button_label": "Shop the system",
-                        "button_link": "shopify://collections/all",
+                        "button_link": "shopify://products/the-essential-system",
                         "color_theme": "tertiary",
                         "btn_max_width_mobile": 0,
                         "btn_unit_mobile": "px",
