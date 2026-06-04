@@ -2675,8 +2675,8 @@
             "image_video_banner_image_slide_Y7Kdkh": {
               "type": "_image-video-banner__image-slide",
               "settings": {
-                "mobile_image": "shopify://shop_images/the-standard-section-mobile.webp",
-                "desktop_image": "shopify://shop_images/the-standard-last-banner-desktop.webp",
+                "mobile_image": "shopify://shop_images/the-system-image-mobile.webp",
+                "desktop_image": "shopify://shop_images/the-system-image-desktop.webp",
                 "lazyload": true,
                 "enable_overlay": true,
                 "overlay_mobile": "rgba(30, 27, 34, 0.30)",
