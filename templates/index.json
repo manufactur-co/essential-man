@@ -686,8 +686,8 @@
             "image_slide_K9xPmQ": {
               "type": "_image-video-text__image-slide",
               "settings": {
-                "image_mobile": "shopify://shop_images/Man-With-Bottle-expand_1_1.webp",
-                "image_desktop": "shopify://shop_images/Man-With-Bottle-expand_1.webp",
+                "image_mobile": "shopify://shop_images/em-image-mobile_628754f7-9e07-4e55-a3a0-8b0943f8ebb8.webp",
+                "image_desktop": "shopify://shop_images/em-image-desktop_34396d4f-e775-4eac-8de0-4928e8e9bf35.webp",
                 "lazyload": true,
                 "image_fit": "cover"
               },
