@@ -48,8 +48,8 @@
             "hero_slide_standard_aQ3xPm": {
               "type": "_hero-section__slide",
               "settings": {
-                "image_mobile": "shopify://shop_images/the-standard-hero-mobile.webp",
-                "image_desktop": "shopify://shop_images/the-standard-hero-image-desktop.webp",
+                "image_mobile": "shopify://shop_images/the-standard-hero-image-mobile_4b5e03aa-9a45-4194-b981-3d2c1608cf80.webp",
+                "image_desktop": "shopify://shop_images/the-standard-hero-image-desktop_f79d5739-8da6-497c-89a4-85596ed8b0ff.webp",
                 "lazyload_image": false,
                 "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 21%, rgba(0, 0, 0, 0) 76%, rgba(0, 0, 0, 0.5) 100%)"
               },
