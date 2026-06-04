@@ -29,7 +29,7 @@
             "hero_section_slide_aticqF": {
               "type": "_hero-section__slide",
               "settings": {
-                "image_mobile": "shopify://shop_images/hero-image-mobile_148cea21-b3c7-42e5-ac05-8f81b6008562.webp",
+                "image_mobile": "shopify://shop_images/hero-image-mobile_287ca1f6-cccf-4686-b573-3853a3c16d1c.webp",
                 "image_desktop": "shopify://shop_images/hero-image-desktop_a27d435f-d889-4f3e-b833-87a2397863de.webp",
                 "lazyload_image": false,
                 "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 34%, rgba(0, 0, 0, 0) 57%, rgba(0, 0, 0, 0.5) 100%)"
