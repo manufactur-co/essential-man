@@ -471,7 +471,7 @@
                       "name": "Section Button",
                       "settings": {
                         "button_label": "see the standard",
-                        "button_link": "#",
+                        "button_link": "shopify://pages/the-standard",
                         "color_theme": "tertiary",
                         "btn_max_width_mobile": 0,
                         "btn_unit_mobile": "px",
