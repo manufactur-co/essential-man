@@ -4741,8 +4741,8 @@
             "image_video_banner_image_slide_8gdBfB": {
               "type": "_image-video-banner__image-slide",
               "settings": {
-                "mobile_image": "shopify://shop_images/em-image-mobile-2.webp",
-                "desktop_image": "shopify://shop_images/em-image-desktop-2.webp",
+                "mobile_image": "shopify://shop_images/standard-section-mobile.webp",
+                "desktop_image": "shopify://shop_images/standard-section-desktop.webp",
                 "lazyload": true,
                 "enable_overlay": true,
                 "overlay_mobile": "rgba(30, 27, 34, 0.30)",
@@ -4937,7 +4937,7 @@
                       "name": "Section Button",
                       "settings": {
                         "button_label": "see the standard",
-                        "button_link": "#",
+                        "button_link": "shopify://pages/the-standard",
                         "color_theme": "tertiary",
                         "btn_max_width_mobile": 0,
                         "btn_unit_mobile": "px",
