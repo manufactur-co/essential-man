@@ -1984,7 +1984,7 @@
                 "mobile_image": "shopify://shop_images/home-image-mobile.webp",
                 "desktop_image": "shopify://shop_images/home-image-desktop.webp",
                 "lazyload": true,
-                "enable_overlay": true,
+                "enable_overlay": false,
                 "overlay_mobile": "rgba(30, 27, 34, 0.30)",
                 "overlay_desktop": "rgba(30, 27, 34, 0.30)"
               },
