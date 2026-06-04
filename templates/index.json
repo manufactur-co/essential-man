@@ -2624,8 +2624,8 @@
             "image_video_banner_image_slide_FFcVH7": {
               "type": "_image-video-banner__image-slide",
               "settings": {
-                "mobile_image": "shopify://shop_images/em-image-mobile-2.webp",
-                "desktop_image": "shopify://shop_images/em-image-desktop-2.webp",
+                "mobile_image": "shopify://shop_images/standard-section-mobile.webp",
+                "desktop_image": "shopify://shop_images/standard-section-desktop.webp",
                 "lazyload": true,
                 "enable_overlay": true,
                 "overlay_mobile": "rgba(30, 27, 34, 0.30)",
