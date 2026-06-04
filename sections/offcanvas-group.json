@@ -362,7 +362,7 @@
           "type": "product_upsell",
           "settings": {
             "color_scheme_upsell": "scheme-1",
-            "title": "You might also like:",
+            "title": "Complete the system",
             "subtitle": "",
             "quantity": 0,
             "products": [
