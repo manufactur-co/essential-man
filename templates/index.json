@@ -1981,7 +1981,7 @@
             "image_slide_Hk3mNp": {
               "type": "_image-video-banner__image-slide",
               "settings": {
-                "mobile_image": "shopify://shop_images/em-image-mobile.webp",
+                "mobile_image": "shopify://shop_images/Content_Block.webp",
                 "desktop_image": "shopify://shop_images/em-image-desktop.webp",
                 "lazyload": true,
                 "enable_overlay": true,
