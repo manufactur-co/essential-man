@@ -377,7 +377,7 @@
             "img_box_uV3wX4": {
               "type": "_mfr-core__floating-images__image",
               "settings": {
-                "image": "shopify://shop_images/Image_Container_-_3.webp",
+                "image": "shopify://shop_images/about-hero-carousel-image-3.webp",
                 "x_position_value_mobile": 14,
                 "x_position_value_desktop": 11,
                 "y_position_value_mobile": 60,
@@ -431,7 +431,7 @@
             "img_can_yZ5aB6": {
               "type": "_mfr-core__floating-images__image",
               "settings": {
-                "image": "shopify://shop_images/Image_Container_-_2.webp",
+                "image": "shopify://shop_images/about-hero-carousel-image-2.webp",
                 "x_position_value_mobile": 80,
                 "x_position_value_desktop": 78,
                 "y_position_value_mobile": 31,
