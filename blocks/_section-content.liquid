@@ -77,21 +77,40 @@
     {%- endif -%}
 
     {%- if block.settings.enable_sticky -%}
-      #shopify-section-{{ section.id }} #shopify-block-{{ block.id }} {
-        align-self: flex-start
-      }
-      @media (max-width: 1023px) {
+      {%- assign sticky_offset = block.settings.sticky_offset | default: 100 -%}
+      {%- if block.settings.sticky_position == 'bottom' -%}
         #shopify-section-{{ section.id }} #shopify-block-{{ block.id }} {
-          position: sticky;
-          top: var(--top-offset-mobile);
+          align-self: flex-end;
         }
-      }
-      @media (min-width: 1024px) {
+        @media (max-width: 1023px) {
+          #shopify-section-{{ section.id }} #shopify-block-{{ block.id }} {
+            position: sticky;
+            bottom: {{ sticky_offset }}px;
+          }
+        }
+        @media (min-width: 1024px) {
+          #shopify-section-{{ section.id }} #shopify-block-{{ block.id }} {
+            position: sticky;
+            bottom: {{ sticky_offset }}px;
+          }
+        }
+      {%- else -%}
         #shopify-section-{{ section.id }} #shopify-block-{{ block.id }} {
-          position: sticky;
-          top: var(--top-offset);
+          align-self: flex-start;
         }
-      }
+        @media (max-width: 1023px) {
+          #shopify-section-{{ section.id }} #shopify-block-{{ block.id }} {
+            position: sticky;
+            top: {{ sticky_offset }}px;
+          }
+        }
+        @media (min-width: 1024px) {
+          #shopify-section-{{ section.id }} #shopify-block-{{ block.id }} {
+            position: sticky;
+            top: {{ sticky_offset }}px;
+          }
+        }
+      {%- endif -%}
     {%- endif -%}
 
   </style>
@@ -124,6 +143,24 @@
         "id": "enable_sticky",
         "label": "Enable Sticky",
         "default": false
+      },
+      {
+        "type": "select",
+        "id": "sticky_position",
+        "label": "Sticky Position",
+        "options": [
+          { "value": "top", "label": "Top" },
+          { "value": "bottom", "label": "Bottom" }
+        ],
+        "default": "top",
+        "visible_if": "{{ block.settings.enable_sticky }}"
+      },
+      {
+        "type": "number",
+        "id": "sticky_offset",
+        "label": "Sticky Offset (px)",
+        "default": 100,
+        "visible_if": "{{ block.settings.enable_sticky }}"
       },
       {
         "type": "header",
