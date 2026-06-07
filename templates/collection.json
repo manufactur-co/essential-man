@@ -224,11 +224,18 @@
           "static": true,
           "settings": {
             "collection": "",
+            "aspect_ratio_mobile": "custom",
+            "aspect_ratio_mobile_custom": "430/635",
+            "aspect_ratio_desktop": "custom",
+            "aspect_ratio_desktop_custom": "480/684",
             "post_per_page": 6,
             "filters_heading": "Quick Options",
             "filters": "",
             "filter_type": "tags",
-            "collection_images": []
+            "collection_images": [],
+            "use_metafield_description": true,
+            "metafield_namespace": "mfr_fields",
+            "metafield_key": "product_card_description"
           },
           "blocks": {}
         },
@@ -247,9 +254,9 @@
         "mobile_alignment": "left",
         "desktop_alignment": "left",
         "color_scheme": "",
-        "top_spacing_mobile": 55,
+        "top_spacing_mobile": 120,
         "bottom_spacing_mobile": 0,
-        "top_spacing_desktop": 60,
+        "top_spacing_desktop": 120,
         "bottom_spacing_desktop": 0,
         "bg_color": "#C4BFB3",
         "section_divider_top": "",

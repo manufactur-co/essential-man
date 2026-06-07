@@ -1,3 +1,4 @@
+{%- render "settings__aspect-ratio", child: ".product-grid__item" -%}
 {% assign filters = block.settings.filters | newline_to_br | strip_newlines | split: '<br />' %}
 {%- assign collection_images = block.settings.collection_images -%}
 {% assign collection_images_size = 0 %}
@@ -27,7 +28,7 @@
       tempDiv.innerHTML = htmlString;
 
       const fetchedGrid = tempDiv.querySelector( ".product-grid__inner" );
-      
+
       if( !fetchedGrid ) {
         $currentGrid.innerHTML = `<p class="no result">No Products Found</p>`;
       }
@@ -102,10 +103,15 @@
       {% paginate collection.products by post_per_page %}
         <div class="product-grid__inner flex [justify-content:inherit] items-stretch [align-content:flex-start] flex-wrap gap-0 w-full transition-all [&.loading]:pointer-events-none [&.loading]:opacity-50">
           {% for product in collection.products %}
-            <div class="product-grid__item w-full shrink-0 aspect-[390/416] large:w-[33.333%] large:max-w-[33.333%]"
+            {%- assign card_description = nil -%}
+            {%- if block.settings.use_metafield_description and block.settings.metafield_namespace != blank and block.settings.metafield_key != blank -%}
+              {%- assign card_description = product.metafields[block.settings.metafield_namespace][block.settings.metafield_key].value -%}
+            {%- endif -%}
+            <div class="product-grid__item w-full shrink-0 large:w-[33.333%] large:max-w-[33.333%]"
               data-inview>
               {% render 'partial__product-card',
-                product: product %}
+                product: product,
+                override_description: card_description %}
             </div>
             {%- assign item_index = forloop.index -%}
             {% for collection_image in collection_images %}
@@ -141,10 +147,15 @@
     {% else %}
       <div class="product-grid__inner flex [justify-content:inherit] items-stretch [align-content:flex-start] flex-wrap gap-0 w-full transition-all [&.loading]:pointer-events-none [&.loading]:opacity-50">
         {% for product in products %}
-          <div class="product-grid__item w-full shrink-0 aspect-[390/416] medium:w-[50%] medium:max-w-[50%] large:w-[33.333%] large:max-w-[33.333%]"
+          {%- assign card_description = nil -%}
+          {%- if block.settings.use_metafield_description and block.settings.metafield_namespace != blank and block.settings.metafield_key != blank -%}
+            {%- assign card_description = product.metafields[block.settings.metafield_namespace][block.settings.metafield_key].value -%}
+          {%- endif -%}
+          <div class="product-grid__item w-full shrink-0 medium:w-[50%] medium:max-w-[50%] large:w-[33.333%] large:max-w-[33.333%]"
             data-inview>
             {% render 'partial__product-card',
-              product: product %}
+              product: product,
+              override_description: card_description %}
           </div>
         {% endfor %}
       </div>
@@ -152,7 +163,7 @@
   {% elsif request.design_mode %}
     <div class="product-grid__inner flex [justify-content:inherit] items-stretch [align-content:flex-start] flex-wrap gap-0 w-full transition-all [&.loading]:pointer-events-none [&.loading]:opacity-50">
       {% for i in (1..6) %}
-        <div class="product-grid__item w-full shrink-0 aspect-[390/416] large:w-[33.333%] large:max-w-[33.333%]"
+        <div class="product-grid__item w-full shrink-0 large:w-[33.333%] large:max-w-[33.333%]"
           data-inview>
           {% render 'partial__product-card',
             product: product %}
@@ -171,6 +182,56 @@
         "type": "collection",
         "id": "collection",
         "label": "Collection"
+      },
+      {
+        "type": "header",
+        "content": "Aspect Ratio Settings"
+      },
+      {
+        "type": "select",
+        "id": "aspect_ratio_mobile",
+        "label": "Aspect Ratio - Mobile",
+        "options": [
+          { "value": "9/16", "label": "9:16 (Portrait)" },
+          { "value": "3/4", "label": "3:4" },
+          { "value": "2/3", "label": "2:3" },
+          { "value": "1/1", "label": "1:1 (Square)" },
+          { "value": "4/3", "label": "4:3" },
+          { "value": "16/9", "label": "16:9 (Landscape)" },
+          { "value": "custom", "label": "Custom" }
+        ],
+        "default": "custom"
+      },
+      {
+        "type": "text",
+        "id": "aspect_ratio_mobile_custom",
+        "label": "Custom Aspect Ratio - Mobile",
+        "info": "Format: width/height e.g. 390/416",
+        "default": "390/416",
+        "visible_if": "{{ block.settings.aspect_ratio_mobile == 'custom' }}"
+      },
+      {
+        "type": "select",
+        "id": "aspect_ratio_desktop",
+        "label": "Aspect Ratio - Desktop",
+        "options": [
+          { "value": "9/16", "label": "9:16 (Portrait)" },
+          { "value": "1/1", "label": "1:1 (Square)" },
+          { "value": "4/3", "label": "4:3" },
+          { "value": "3/2", "label": "3:2" },
+          { "value": "16/9", "label": "16:9 (Landscape)" },
+          { "value": "21/9", "label": "21:9 (Ultrawide)" },
+          { "value": "custom", "label": "Custom" }
+        ],
+        "default": "custom"
+      },
+      {
+        "type": "text",
+        "id": "aspect_ratio_desktop_custom",
+        "label": "Custom Aspect Ratio - Desktop",
+        "info": "Format: width/height e.g. 390/416",
+        "default": "390/416",
+        "visible_if": "{{ block.settings.aspect_ratio_desktop == 'custom' }}"
       },
       {
         "type": "header",
@@ -220,6 +281,30 @@
         "id": "collection_images",
         "label": "Collection Images",
         "metaobject_type": "collection_images"
+      },
+      {
+        "type": "header",
+        "content": "Product Card Description"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_metafield_description",
+        "label": "Use metafield for description",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "metafield_namespace",
+        "label": "Metafield Namespace",
+        "info": "e.g. custom",
+        "visible_if": "{{ block.settings.use_metafield_description }}"
+      },
+      {
+        "type": "text",
+        "id": "metafield_key",
+        "label": "Metafield Key",
+        "info": "e.g. short_description",
+        "visible_if": "{{ block.settings.use_metafield_description }}"
       }
     ],
     "presets": [
