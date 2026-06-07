@@ -33,11 +33,11 @@
             <div class="form-inner two-column flex flex-col items-stretch">
               <div class="form-inner flex flex-col items-stretch">
                 <label for="contactFormFirstName">First Name</label>
-                <input type="text" id="contactFormFirstName" name="contact[first_name]" tabindex="0" placeholder="Enter your first name" autocapitalize="words" required value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                <input type="text" id="contactFormFirstName" name="contact[first_name]" tabindex="0" placeholder="{{ block.settings.first_name_placeholder }}" autocapitalize="words" required value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
               </div>
               <div class="form-inner flex flex-col items-stretch">
                 <label for="contactFormLastName">Last Name</label>
-                <input type="text" id="contactFormLastName" name="contact[last_name]" tabindex="0" placeholder="Enter your last name" autocapitalize="words" required value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
+                <input type="text" id="contactFormLastName" name="contact[last_name]" tabindex="0" placeholder="{{ block.settings.last_name_placeholder }}" autocapitalize="words" required value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}">
               </div>
             </div>
           {%- else -%}
@@ -246,7 +246,22 @@
           "type": "text",
           "id": "name_placeholder",
           "label": "Name Placeholder",
-          "default": "John Doe"
+          "default": "John Doe",
+          "visible_if": "{{ block.settings.separate_name == false }}"
+        },
+        {
+          "type": "text",
+          "id": "first_name_placeholder",
+          "label": "First Name Placeholder",
+          "default": "First Name",
+          "visible_if": "{{ block.settings.separate_name }}"
+        },
+        {
+          "type": "text",
+          "id": "last_name_placeholder",
+          "label": "Last Name Placeholder",
+          "default": "Last Name",
+          "visible_if": "{{ block.settings.separate_name }}"
         },
         {
           "type": "text",
