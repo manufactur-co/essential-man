@@ -3971,7 +3971,7 @@
               "type": "_mfr-product__ingredients__additional-info",
               "settings": {
                 "title": "What we refused to include",
-                "caption": "Parabens, sulfates, synthetic fragrance, dyes, formaldehyde releasers, PEGs, PFAS, talc, silicones, synthetic styling polymers, alcohol, aerosols, propellants, preservatives, water.",
+                "caption": "<p>{{ closest.product.metafields.mfr_fields.key_ingredients_text | metafield_tag }}</p>",
                 "bg_color": "#eeece5",
                 "text_color": "#1e1b22",
                 "enable_width_settings": false,
