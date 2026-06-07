@@ -48,8 +48,8 @@
             "hero_slide_standard_aQ3xPm": {
               "type": "_hero-section__slide",
               "settings": {
-                "image_mobile": "shopify://shop_images/the-standard-hero-mobile.webp",
-                "image_desktop": "shopify://shop_images/the-standard-hero-image-desktop.webp",
+                "image_mobile": "shopify://shop_images/the-standard-hero-image-mobile_4b5e03aa-9a45-4194-b981-3d2c1608cf80.webp",
+                "image_desktop": "shopify://shop_images/the-standard-hero-image-desktop_f79d5739-8da6-497c-89a4-85596ed8b0ff.webp",
                 "lazyload_image": false,
                 "overlay_gradient": "linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0) 21%, rgba(0, 0, 0, 0) 76%, rgba(0, 0, 0, 0.5) 100%)"
               },
@@ -669,8 +669,8 @@
             "image_video_banner_image_slide_8LJ46U": {
               "type": "_image-video-banner__image-slide",
               "settings": {
-                "mobile_image": "shopify://shop_images/Content_Block_1.webp",
-                "desktop_image": "shopify://shop_images/em-image-desktop-2.webp",
+                "mobile_image": "shopify://shop_images/standard-section-mobile.webp",
+                "desktop_image": "shopify://shop_images/standard-section-desktop.webp",
                 "lazyload": true,
                 "enable_overlay": true,
                 "overlay_mobile": "rgba(30, 27, 34, 0.30)",
@@ -2675,8 +2675,8 @@
             "image_video_banner_image_slide_Y7Kdkh": {
               "type": "_image-video-banner__image-slide",
               "settings": {
-                "mobile_image": "shopify://shop_images/the-standard-section-mobile.webp",
-                "desktop_image": "shopify://shop_images/the-standard-last-banner-desktop.webp",
+                "mobile_image": "shopify://shop_images/the-system-image-mobile.webp",
+                "desktop_image": "shopify://shop_images/the-system-image-desktop.webp",
                 "lazyload": true,
                 "enable_overlay": true,
                 "overlay_mobile": "rgba(30, 27, 34, 0.30)",
@@ -2923,7 +2923,7 @@
                       "name": "Section Button",
                       "settings": {
                         "button_label": "Shop the system",
-                        "button_link": "shopify://collections/all",
+                        "button_link": "shopify://products/the-essential-system",
                         "color_theme": "tertiary",
                         "btn_max_width_mobile": 0,
                         "btn_unit_mobile": "px",

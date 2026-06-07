@@ -35,6 +35,7 @@
           "type": "_section-content",
           "settings": {
             "use_grid_container_max_width": false,
+            "enable_sticky": false,
             "mobile_alignment": "left",
             "desktop_alignment": "left",
             "vertical_alignment": "flex-start",
@@ -144,6 +145,7 @@
               "settings": {
                 "heading": "Most men accept less in their grooming than they do anywhere else in their lives.",
                 "disable_animation": false,
+                "enable_nobr": false,
                 "header_style": "h1",
                 "header_tag": "h2",
                 "font_family": "",
@@ -151,14 +153,14 @@
                 "underline_color": "",
                 "enable_width_settings": false,
                 "width_mobile": false,
-                "width_mobile_value": 0,
+                "width_mobile_value": 390,
                 "width_mobile_custom": "",
                 "width_mobile_unit": "px",
                 "width_desktop": false,
                 "width_desktop_value": 0,
                 "width_desktop_custom": "",
                 "width_desktop_unit": "px",
-                "max_width_mobile": false,
+                "max_width_mobile": true,
                 "max_width_mobile_value": 0,
                 "max_width_mobile_custom": "",
                 "max_width_mobile_unit": "px",
@@ -202,6 +204,16 @@
                 "disable_animation": false,
                 "text_style": "regular",
                 "font_family": "custom-font-name-2",
+                "enable_font_settings": false,
+                "font_case": "",
+                "font_size_mobile": 0,
+                "line_height_mobile": 0,
+                "letter_spacing_mobile": 0,
+                "font_weight_mobile": "",
+                "font_size_desktop": 0,
+                "line_height_desktop": 0,
+                "letter_spacing_desktop": 0,
+                "font_weight_desktop": "",
                 "color": "",
                 "highlight_color": "",
                 "underline_color": "",
@@ -365,7 +377,7 @@
             "img_box_uV3wX4": {
               "type": "_mfr-core__floating-images__image",
               "settings": {
-                "image": "shopify://shop_images/Image_Container_-_3.webp",
+                "image": "shopify://shop_images/about-hero-carousel-image-3.webp",
                 "x_position_value_mobile": 14,
                 "x_position_value_desktop": 11,
                 "y_position_value_mobile": 60,
@@ -419,7 +431,7 @@
             "img_can_yZ5aB6": {
               "type": "_mfr-core__floating-images__image",
               "settings": {
-                "image": "shopify://shop_images/Image_Container_-_2.webp",
+                "image": "shopify://shop_images/about-hero-carousel-image-2.webp",
                 "x_position_value_mobile": 80,
                 "x_position_value_desktop": 78,
                 "y_position_value_mobile": 31,
@@ -539,7 +551,7 @@
           "type": "_mfr-core__featured-product__featured-product",
           "settings": {
             "product": "the-essential-system",
-            "image": "shopify://shop_images/GeneratedwithKive.ai-kive-image_16_41.webp"
+            "image": "shopify://shop_images/shop-essential-system-desktop.webp"
           },
           "blocks": {
             "mfr_core_featured_product_text_list_kTQxwG": {
@@ -826,6 +838,7 @@
           "static": true,
           "settings": {
             "use_grid_container_max_width": true,
+            "enable_sticky": false,
             "mobile_alignment": "left",
             "desktop_alignment": "left",
             "vertical_alignment": "flex-start",
@@ -882,8 +895,9 @@
             "section_content_title_4EqDmX": {
               "type": "_section-content__title",
               "settings": {
-                "heading": "Two Products. One System.",
+                "heading": "Shop the Essential System",
                 "disable_animation": false,
+                "enable_nobr": false,
                 "header_style": "h1",
                 "header_tag": "h2",
                 "font_family": "",

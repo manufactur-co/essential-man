@@ -60,7 +60,7 @@
               "type": "_offcanvas-menu__image-text-link",
               "name": "Image Text Link",
               "settings": {
-                "url": "#",
+                "url": "shopify://products/the-essential-system",
                 "image": "shopify://shop_images/Generated_with_Kive.ai_-_kive-image_16_4_1.webp",
                 "title": "The essential system",
                 "badge": "best value",
@@ -108,7 +108,7 @@
               "type": "_offcanvas-menu__image-text-link",
               "name": "Image Text Link",
               "settings": {
-                "url": "#",
+                "url": "shopify://products/texture-powder",
                 "image": "shopify://shop_images/Generated_with_Kive.ai_-_kive-image_11_1.jpg",
                 "title": "Texture Powder",
                 "badge": "",
@@ -156,7 +156,7 @@
               "type": "_offcanvas-menu__image-text-link",
               "name": "Image Text Link",
               "settings": {
-                "url": "#",
+                "url": "shopify://products/matte-clay",
                 "image": "shopify://shop_images/Generated_with_Kive.ai_-_kive-image_2.jpg",
                 "title": "Matte Clay",
                 "badge": "",
@@ -362,7 +362,7 @@
           "type": "product_upsell",
           "settings": {
             "color_scheme_upsell": "scheme-1",
-            "title": "You might also like:",
+            "title": "Complete the system",
             "subtitle": "",
             "quantity": 0,
             "products": [
@@ -381,6 +381,7 @@
         "general_message": "",
         "button_label": "Checkout",
         "cart_exclusion_strings": "",
+        "show_discount_input": false,
         "color_scheme": "scheme-1",
         "color_scheme_checkout": "scheme-e7a2b49c-36ae-4b1f-b31f-f3ec31db1021"
       }
