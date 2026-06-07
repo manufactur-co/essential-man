@@ -526,11 +526,11 @@
             },
             "quick_add_hij456": {
               "type": "_product-top__quick-add",
-              "disabled": true,
               "settings": {
+                "product": "the-essential-system",
+                "quantity": 1,
                 "bundle_text": "2-pack Bundle",
                 "save_text": "Save $6, Ships Free",
-                "quantity": 2,
                 "enable_width_settings": false,
                 "width_mobile": false,
                 "width_mobile_value": 0,
