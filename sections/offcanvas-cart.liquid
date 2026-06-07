@@ -41,7 +41,7 @@
       </div>
     {%- endif -%}
 
-    <div class="offcanvas-cart__form cart-form relative flex grow flex-col overflow-hidden" :class="$store.cart.cartState.updating ? 'cart-updating pointer-events-none' : ''">
+    <div class="offcanvas-cart__form cart-form relative flex grow flex-col overflow-hidden border-t border-current" :class="$store.cart.cartState.updating ? 'cart-updating pointer-events-none' : ''">
       <div class="cart-form__updating-overlay pointer-events-none absolute left-0 top-0 z-[5] h-full w-full bg-current opacity-20" x-show="$store.cart.cartState.updating" x-cloak></div>
       {%- render "cart__form", product_upsell: product_upsell, cart_surcharge: cart_surcharge -%}
     </div>

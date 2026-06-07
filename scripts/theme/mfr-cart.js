@@ -173,7 +173,10 @@ document.addEventListener("alpine:init", () => {
     },
 
     cartCounterExclusion() {
-      if (this.cartExclusions.length <= 0) return;
+      if (this.cartExclusions.length <= 0) {
+        this.cartCounter = this.cartData.item_count;
+        return;
+      }
 
       const exclusionLength = this.cartData.items.filter((item) =>
         this.cartExclusions.includes(item.product_type)
