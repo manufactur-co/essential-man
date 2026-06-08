@@ -527,10 +527,10 @@
             "quick_add_hij456": {
               "type": "_product-top__quick-add",
               "settings": {
-                "product": "{{ closest.product.metafields.mfr_fields.product_top_2_pack_bundle.value }}",
+                "product": "{{ product.metafields.mfr_fields.product_top_2_pack_bundle.value }}",
                 "quantity": 1,
                 "bundle_text": "Bundle a 2-pack",
-                "save_text": "{{ closest.product.metafields.mfr_fields.product_top_2_pack_savings_label.value }}",
+                "save_text": "{{ product.metafields.mfr_fields.product_top_2_pack_savings_label.value }}",
                 "enable_width_settings": false,
                 "width_mobile": false,
                 "width_mobile_value": 0,
