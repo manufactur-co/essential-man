@@ -530,7 +530,7 @@
                 "product": "{{ closest.product.metafields.mfr_fields.product_top_2_pack_bundle.value }}",
                 "quantity": 1,
                 "bundle_text": "Bundle a 2-pack",
-                "save_text": "Save $6, Ships Free",
+                "save_text": "{{ closest.product.metafields.mfr_fields.product_top_2_pack_savings_label.value }}",
                 "enable_width_settings": false,
                 "width_mobile": false,
                 "width_mobile_value": 0,
