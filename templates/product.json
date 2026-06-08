@@ -4334,7 +4334,7 @@
                       "type": "_section-content__button",
                       "settings": {
                         "button_label": "Contact us and it is handled",
-                        "button_link": "#",
+                        "button_link": "#offCanvasContact",
                         "color_theme": "tertiary",
                         "btn_max_width_mobile": 0,
                         "btn_unit_mobile": "px",
