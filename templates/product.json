@@ -4078,7 +4078,7 @@
           "static": true,
           "settings": {
             "autoplay_timing": 0,
-            "height_value_mobile": 390,
+            "height_value_mobile": 618,
             "height_unit_mobile": "px",
             "height_value_desktop": 630,
             "height_unit_desktop": "px"
