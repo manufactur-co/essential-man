@@ -262,7 +262,7 @@
         "bottom_spacing_desktop": 0,
         "bg_color": "#C4BFB3",
         "section_divider_top": "",
-        "section_divider_bottom": "line",
+        "section_divider_bottom": "",
         "custom_class": "",
         "custom_id": ""
       }

@@ -349,7 +349,7 @@
         "price_progress_bar_EepTtF": {
           "type": "price_progress_bar",
           "settings": {
-            "collection": "all-products",
+            "collection": "all",
             "price": "50",
             "condition_label": "<p>You are $[price] away from free shipping</p>",
             "success_message": "<p>You have free shipping!</p>",
