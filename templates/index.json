@@ -272,7 +272,7 @@
                           "type": "_section-content__button",
                           "settings": {
                             "button_label": "Shop the system",
-                            "button_link": "",
+                            "button_link": "shopify://products/the-essential-system",
                             "color_theme": "primary",
                             "btn_max_width_mobile": 0,
                             "btn_unit_mobile": "px",
@@ -328,7 +328,7 @@
                           "type": "_section-content__button",
                           "settings": {
                             "button_label": "See the standard",
-                            "button_link": "",
+                            "button_link": "shopify://pages/the-standard",
                             "color_theme": "primary",
                             "btn_max_width_mobile": 0,
                             "btn_unit_mobile": "px",
@@ -610,7 +610,7 @@
               "type": "_section-content__button",
               "settings": {
                 "button_label": "See The Standard",
-                "button_link": "",
+                "button_link": "shopify://pages/the-standard",
                 "color_theme": "underlined-cta",
                 "btn_max_width_mobile": 0,
                 "btn_unit_mobile": "px",
