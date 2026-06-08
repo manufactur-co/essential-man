@@ -101,7 +101,8 @@
   {% unless has_no_products %}
     {% if source == "collection" %}
       {% paginate collection.products by post_per_page %}
-        <div class="product-grid__inner flex [justify-content:inherit] items-stretch [align-content:flex-start] flex-wrap gap-0 w-full transition-all [&.loading]:pointer-events-none [&.loading]:opacity-50">
+        <div class="product-grid__inner flex [justify-content:inherit] items-stretch [align-content:flex-start] flex-wrap gap-0 w-full transition-all [&.loading]:pointer-events-none [&.loading]:opacity-50"
+          x-data='MFRMatchHeight(".product-card__description")'>
           {% for product in collection.products %}
             {%- assign card_description = nil -%}
             {%- if block.settings.use_metafield_description and block.settings.metafield_namespace != blank and block.settings.metafield_key != blank -%}
@@ -145,7 +146,8 @@
         </div>
       {% endpaginate %}
     {% else %}
-      <div class="product-grid__inner flex [justify-content:inherit] items-stretch [align-content:flex-start] flex-wrap gap-0 w-full transition-all [&.loading]:pointer-events-none [&.loading]:opacity-50">
+      <div class="product-grid__inner flex [justify-content:inherit] items-stretch [align-content:flex-start] flex-wrap gap-0 w-full transition-all [&.loading]:pointer-events-none [&.loading]:opacity-50"
+        x-data='MFRMatchHeight(".product-card__description")'>
         {% for product in products %}
           {%- assign card_description = nil -%}
           {%- if block.settings.use_metafield_description and block.settings.metafield_namespace != blank and block.settings.metafield_key != blank -%}
@@ -161,7 +163,8 @@
       </div>
     {% endif %}
   {% elsif request.design_mode %}
-    <div class="product-grid__inner flex [justify-content:inherit] items-stretch [align-content:flex-start] flex-wrap gap-0 w-full transition-all [&.loading]:pointer-events-none [&.loading]:opacity-50">
+    <div class="product-grid__inner flex [justify-content:inherit] items-stretch [align-content:flex-start] flex-wrap gap-0 w-full transition-all [&.loading]:pointer-events-none [&.loading]:opacity-50"
+      x-data='MFRMatchHeight(".product-card__description")'>
       {% for i in (1..6) %}
         <div class="product-grid__item w-full shrink-0 large:w-[33.333%] large:max-w-[33.333%]"
           data-inview>
