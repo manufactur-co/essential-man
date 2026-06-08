@@ -527,7 +527,7 @@
             "quick_add_hij456": {
               "type": "_product-top__quick-add",
               "settings": {
-                "product": "the-essential-system",
+                "product": "{{ closest.product.metafields.mfr_fields.product_top_2_pack_bundle.value }}",
                 "quantity": 1,
                 "bundle_text": "Bundle a 2-pack",
                 "save_text": "Save $6, Ships Free",

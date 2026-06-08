@@ -1,64 +1,64 @@
 {%- render "settings__block-layout-controls" -%}
 
-{%- assign quick_add_product = block.settings.product | default: product -%}
-{%- assign quick_add_form_id = "quick-add-form-" | append: quick_add_product.id -%}
-
-{%- if quick_add_product.available -%}
-  {%- assign open_off_canvas = 'x-on:click="$store[`offCanvasCart`].openOffcanvas(); $store[`offCanvasProductForm`].closeOffcanvas()"' -%}
+{%- if block.settings.product == blank -%}
+  <style>#shopify-block-{{ block.id }} { display: none; }</style>
 {%- else -%}
-  {%- assign open_off_canvas = '' -%}
-{%- endif -%}
+  {%- assign quick_add_product = block.settings.product -%}
+  {%- assign quick_add_form_id = "quick-add-form-" | append: quick_add_product.id -%}
+  {%- assign quick_add_quantity = block.settings.quantity | default: 2 -%}
+  {%- assign quick_add_variant = quick_add_product.selected_or_first_available_variant -%}
+  {%- assign quick_add_price = quick_add_variant.price | times: quick_add_quantity -%}
+  {%- assign quick_add_compare_price = quick_add_variant.compare_at_price | times: quick_add_quantity -%}
 
-<div class="product-top__quick-add w-full">
-  {%- form 'product',
-    quick_add_product,
-    id: quick_add_form_id,
-    class: 'form',
-    novalidate: 'novalidate',
-    data-type: 'add-to-cart-form',
-    x-data: 'MFRProductForm()'
-  -%}
-    {%- render 'product-form__hidden-input', product: quick_add_product -%}
-    <input type="hidden" name="quantity" value="{{ block.settings.quantity | default: 2 }}">
+  {%- if quick_add_product.available -%}
+    {%- assign open_off_canvas = 'x-on:click="$store[`offCanvasCart`].openOffcanvas(); $store[`offCanvasProductForm`].closeOffcanvas()"' -%}
+  {%- else -%}
+    {%- assign open_off_canvas = '' -%}
+  {%- endif -%}
 
-    <button type="submit"
-      class="product-top__quick-add__inner flex flex-wrap items-center justify-center gap-[8px] w-full [font-family:var(--font-body)] text-[14px] font-[700] leading-[1.4] uppercase bg-transparent border-none cursor-pointer p-0 rounded-[5px]"
-      {{ open_off_canvas }}>
+  <div class="product-top__quick-add w-full">
+    {%- form 'product',
+      quick_add_product,
+      id: quick_add_form_id,
+      class: 'form',
+      novalidate: 'novalidate',
+      data-type: 'add-to-cart-form',
+      x-data: 'MFRProductForm()'
+    -%}
+      {%- render 'product-form__hidden-input', product: quick_add_product -%}
+      <input type="hidden" name="quantity" value="{{ quick_add_quantity }}">
 
-      <div class="product-top__quick-add__info flex items-center gap-[8px] border-b border-current">
-        <span class="product-top__quick-add__bundle-text">{{ block.settings.bundle_text }}</span>
+      <button type="submit"
+        class="product-top__quick-add__inner flex flex-wrap items-center justify-center gap-[8px] w-full [font-family:var(--font-body)] text-[14px] font-[700] leading-[1.4] uppercase bg-transparent border-none cursor-pointer p-0 rounded-[5px]"
+        {{ open_off_canvas }}>
 
-        <span class="product-top__quick-add__separator">&mdash;</span>
+        <div class="product-top__quick-add__info flex items-center gap-[8px] border-b border-current">
+          <span class="product-top__quick-add__bundle-text">{{ block.settings.bundle_text }}</span>
 
-        <span class="product-top__quick-add__prices flex items-center gap-[4px]">
-          {%- assign quick_add_quantity = block.settings.quantity | default: 2 -%}
-          {%- if block.settings.product != blank -%}
-            {%- assign quick_add_price = quick_add_product.selected_or_first_available_variant.price | times: quick_add_quantity -%}
+          <span class="product-top__quick-add__separator">&mdash;</span>
+
+          <span class="product-top__quick-add__prices flex items-center gap-[4px]">
+            {%- if quick_add_compare_price > quick_add_price -%}
+              <span class="product-top__quick-add__compare line-through opacity-30">
+                {{- quick_add_compare_price | money -}}
+              </span>
+            {%- endif -%}
             <span class="product-top__quick-add__price">
-              {{- quick_add_price | money_without_trailing_zeros -}}
+              {{- quick_add_price | money -}}
             </span>
-          {%- else -%}
-            <template x-if='currentCompareAtPrice'>
-              <span class="product-top__quick-add__compare line-through opacity-30"
-                x-text='currentCompareAtPrice'></span>
-            </template>
-            <span class="product-top__quick-add__price"
-              x-text='$store.cart?.formatMoney(price * {{ quick_add_quantity }})'>
-              {{- quick_add_product.selected_or_first_available_variant.price | times: quick_add_quantity | money_without_trailing_zeros -}}
-            </span>
-          {%- endif -%}
-        </span>
-      </div>
-
-      {%- if block.settings.save_text != blank -%}
-        <div class="product-top__quick-add__save bg-[#d15722] text-[#eeece5] rounded-[5px] px-[8px] py-[6px] text-[12px] font-[700] leading-[1em] uppercase">
-          <span>{{ block.settings.save_text }}</span>
+          </span>
         </div>
-      {%- endif -%}
 
-    </button>
-  {%- endform -%}
-</div>
+        {%- if block.settings.save_text != blank -%}
+          <div class="product-top__quick-add__save bg-[#d15722] text-[#eeece5] rounded-[5px] px-[8px] py-[6px] text-[12px] font-[700] leading-[1em] uppercase">
+            <span>{{ block.settings.save_text }}</span>
+          </div>
+        {%- endif -%}
+
+      </button>
+    {%- endform -%}
+  </div>
+{%- endif -%}
 
 {%- render 'script__section', file: "MFRProductForm.js" -%}
 
