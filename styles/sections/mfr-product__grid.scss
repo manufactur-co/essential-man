@@ -8,8 +8,9 @@
     overflow: hidden;
 
     @include breakpoint(large up) {
-      flex: 1 0 0;
+      // flex: 1 0 0;
       min-width: 0;
+      flex-shrink: 0;
     }
   }
 

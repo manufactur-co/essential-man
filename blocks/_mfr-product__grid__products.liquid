@@ -1,9 +1,10 @@
 {%- render "settings__block-layout-controls" -%}
 
-<div class="product-grid__list w-full flex flex-col large:flex-row">
+<div class="product-grid__list w-full flex flex-col large:flex-row flex-wrap"
+  x-data='MFRMatchHeight(".product-card__description")'>
   {%- content_for "blocks" -%}
 </div>
-
+{%- render "script__section", file: "MFRMatchHeight.js" -%}
 {% schema %}
 {
   "name": "Products",
