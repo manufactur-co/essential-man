@@ -1300,6 +1300,7 @@
               "settings": {
                 "image_mobile": "shopify://shop_images/Group_369.webp",
                 "image_desktop": "shopify://shop_images/Embossed-Logo-EssentialMan_1.webp",
+                "url": "",
                 "enable_width_settings": false,
                 "width_mobile": false,
                 "width_mobile_value": 0,
@@ -1417,6 +1418,7 @@
       "settings": {
         "color_scheme": "scheme-e7a2b49c-36ae-4b1f-b31f-f3ec31db1021",
         "bg_color": "#362B26",
+        "bg_texture": "shopify://shop_images/texture_1.webp",
         "appear_on": ""
       }
     },

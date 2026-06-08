@@ -36,6 +36,8 @@
           "settings": {
             "use_grid_container_max_width": false,
             "enable_sticky": false,
+            "sticky_position": "top",
+            "sticky_offset": 100,
             "mobile_alignment": "left",
             "desktop_alignment": "left",
             "vertical_alignment": "flex-start",
@@ -538,6 +540,7 @@
         "top_spacing_desktop": 154,
         "bottom_spacing_desktop": 50,
         "bg_color": "#362b26",
+        "bg_texture": "shopify://shop_images/texture_1.webp",
         "section_divider_top": "line",
         "section_divider_bottom": "",
         "custom_class": "",
@@ -839,6 +842,8 @@
           "settings": {
             "use_grid_container_max_width": true,
             "enable_sticky": false,
+            "sticky_position": "top",
+            "sticky_offset": 100,
             "mobile_alignment": "left",
             "desktop_alignment": "left",
             "vertical_alignment": "flex-start",

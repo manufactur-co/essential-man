@@ -14,7 +14,15 @@
       #shopify-section-{{ section.id }}.footer__main { background: {{ section.settings.bg_color }}; }
     </style>
   {%- endif -%}
-  <div class="w-full flex flex-row flex-wrap" data-inview>
+  <div class="w-full flex flex-row flex-wrap relative overflow-hidden" data-inview>
+    {%- if section.settings.bg_texture != blank -%}
+      <div class="background__texture absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+        {%- render "component__lazyload-image",
+          image: section.settings.bg_texture,
+          width: 1200,
+          class: "w-full h-full object-cover" -%}
+      </div>
+    {%- endif -%}
     <div class="footer__contents flex flex-row align-stretch transition-all flex-wrap large:flex-row large:justify-between w-full min-w-0">
       {%- content_for "blocks" -%}
     </div>
@@ -52,6 +60,11 @@
       "id": "bg_color",
       "label": "Background Color Override",
       "info": "Overrides the color scheme background. Supports gradients."
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_texture",
+      "label": "Background Texture Image"
     },
     {
       "type": "header",

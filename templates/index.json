@@ -1559,6 +1559,7 @@
         "top_spacing_desktop": 50,
         "bottom_spacing_desktop": 50,
         "bg_color": "#51482b",
+        "bg_texture": "shopify://shop_images/texture_1.webp",
         "section_divider_top": "",
         "section_divider_bottom": "",
         "custom_class": "",

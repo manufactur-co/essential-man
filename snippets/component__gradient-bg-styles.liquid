@@ -72,3 +72,12 @@
   </div>
 </div>
 {% endif %}
+
+{%- if section.settings.bg_texture != blank -%}
+  <div class="background__texture absolute top-0 left-0 w-full h-full pointer-events-none overflow-hidden">
+    {%- render "component__lazyload-image",
+      image: section.settings.bg_texture,
+      width: 1200,
+      class: "w-full h-full object-cover" -%}
+  </div>
+{%- endif -%}

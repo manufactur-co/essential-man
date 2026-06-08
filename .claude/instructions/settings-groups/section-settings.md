@@ -176,6 +176,11 @@ Requires `snippets/section__settings-styles.liquid` rendered in the section.
   "type": "image_picker",
   "id": "bg_image",
   "label": "Background Image - Desktop"
+},
+{
+  "type": "image_picker",
+  "id": "bg_texture",
+  "label": "Background Texture Image"
 }
 ```
 
