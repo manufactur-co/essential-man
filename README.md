@@ -886,3 +886,48 @@ When creating a new section, create `styles/sections/<filename>.scss`:
 ```
 
 `<sub-name>` is the part after `__` in the section filename (e.g. `mfr-core__accordion-section` → `accordion-section`). Import `"../site-specifics"` only when the section needs project-specific variables.
+
+---
+
+## 🪄 Easter Egg — Claude Skill: `figma-to-shopify-qa`
+
+If you're using [Claude Code](https://claude.ai/code), this project ships with a custom skill that QAs Shopify sections against Figma comps and auto-fixes visual differences until pixel-perfect.
+
+### What it does
+
+`/figma-to-shopify-qa` is a QA skill that:
+
+1. **Reads the Figma comp** — fetches screenshots and full design context (typography, spacing, colors, layout, aspect ratios) from both mobile and desktop frames via the Figma MCP server
+2. **Screenshots the live section** — captures the running dev server at 375px (mobile) and 1440px (desktop)
+3. **Diffs comp vs live** — compares every visible element: font sizes, weights, letter-spacing, padding, gap, colors, borders, image aspect ratios, and flex alignment
+4. **Auto-fixes** — edits the block/section `.liquid` and `.scss` files directly to match the comp, following all project conventions (Tailwind-first, custom breakpoints, no fixed heights, BEM wrappers)
+5. **Verifies** — re-screenshots and re-diffs up to 3 rounds until pixel-perfect
+6. **Reports** — lists every change made, what's verified, and anything that couldn't be auto-resolved
+
+### How to use it
+
+Make sure the dev server is running (`npm run dev`), then in Claude Code:
+
+```
+/figma-to-shopify-qa <mobile-figma-url> <desktop-figma-url> <preview-url> [section-name]
+```
+
+**Example:**
+```
+/figma-to-shopify-qa https://www.figma.com/design/.../NodeA https://www.figma.com/design/.../NodeB http://127.0.0.1:9292/pages/test mfr-core__customer-testimonials
+```
+
+| Argument | Required | Description |
+|----------|----------|-------------|
+| `mobile-figma-url` | Yes | Figma node URL for the mobile frame |
+| `desktop-figma-url` | Yes | Figma node URL for the desktop frame |
+| `preview-url` | Yes | Local dev server URL where the section is visible |
+| `section-name` | No | If omitted, Claude derives it from the Figma frame name |
+
+### Requirements
+
+- **Figma desktop app** with the MCP server enabled (provides `get_screenshot` and `get_design_context`)
+- **Claude Code** with the `figma-to-shopify-qa` skill in `~/.claude/skills/figma-to-shopify-qa/`
+- Dev server running via `npm run dev`
+
+Screenshots are saved to `qa-screenshots/<section-name>/` in the project root for reference.
