@@ -1,15 +1,30 @@
 {%- render "settings__block-layout-controls" -%}
 
+{%- comment -%}Find the parent featured-product block's product via section.blocks{%- endcomment -%}
+{%- assign atc_product = block.settings.product -%}
+{%- unless atc_product != blank -%}
+  {%- for s_block in section.blocks -%}
+    {%- if s_block.type == "_mfr-core__featured-product__featured-product" -%}
+      {%- for child in s_block.blocks -%}
+        {%- if child.id == block.id -%}
+          {%- assign atc_product = s_block.settings.product -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+    {%- endif -%}
+    {%- if atc_product != blank -%}{%- break -%}{%- endif -%}
+  {%- endfor -%}
+{%- endunless -%}
+
 <div class="add-to-cart-button">
   <div class="add-to-cart-button__inner">
-
-    {%- if block.settings.product != blank -%}
+    {%- assign button_class = "w-full " | append: block.settings.button_style -%}
+    {%- if atc_product != blank -%}
       {%- render "component__add-to-cart-button",
-        product: block.settings.product,
-        button_class: block.settings.button_style,
+        product: atc_product,
+        button_class: button_class,
         button_label: block.settings.button_label,
-        form_class: "add-to-cart-button__form w-full",
-        button_class: "w-full" -%}
+        form_class: "add-to-cart-button__form w-full", -%}
     {%- else -%}
       <button type="button" class="add-to-cart-button__btn button {{ block.settings.button_style }} w-full">
         {{- block.settings.button_label | default: 'Add to Cart' -}}
