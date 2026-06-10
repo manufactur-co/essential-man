@@ -4305,7 +4305,7 @@
                   "type": "_mfr-product__ingredients__item",
                   "settings": {
                     "title": "Matte Mineral Complex (Kaolin, Silica, Bentonite)",
-                    "caption": "Triple-mineral base. Controls shine and absorbs oils without over-drying.",
+                    "caption": "Absorbs the oil that turns other clays shiny by afternoon.",
                     "enable_width_settings": false,
                     "width_mobile": false,
                     "width_mobile_value": 0,
@@ -4356,7 +4356,7 @@
                   "type": "_mfr-product__ingredients__item",
                   "settings": {
                     "title": "Structured Wax Network (Beeswax, Rice Bran Wax)",
-                    "caption": "Natural wax blend. Sets the shape and builds texture that holds through the day.",
+                    "caption": "Builds the hold without the brittleness or greasy breakdown.",
                     "enable_width_settings": false,
                     "width_mobile": false,
                     "width_mobile_value": 0,
@@ -4407,7 +4407,7 @@
                   "type": "_mfr-product__ingredients__item",
                   "settings": {
                     "title": "Flexible Hold System (VP/VA Copolymer, Pullulan)",
-                    "caption": "Polymer-based hold. Adds structure without stiffening or crunch.",
+                    "caption": "Keeps the structure flexible through the day, without stiffness or flaking.",
                     "enable_width_settings": false,
                     "width_mobile": false,
                     "width_mobile_value": 0,
@@ -4458,7 +4458,7 @@
                   "type": "_mfr-product__ingredients__item",
                   "settings": {
                     "title": "Hair & Scalp Support (Glycerin, Panthenol, Niacinamide)",
-                    "caption": "Conditioning trio. Keeps hair healthy and scalp balanced without adding weight.",
+                    "caption": "Holds moisture where most clays dry the hair out.",
                     "enable_width_settings": false,
                     "width_mobile": false,
                     "width_mobile_value": 0,
