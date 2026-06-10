@@ -4,17 +4,12 @@
   <div class="add-to-cart-button__inner">
 
     {%- if block.settings.product != blank -%}
-      {%- assign atc_product = block.settings.product -%}
-      {%- assign atc_variant = atc_product.first_available_variant -%}
-      <form class="add-to-cart-button__form" action="/cart/add" method="post">
-        <input type="hidden" name="id" value="{{ atc_variant.id }}">
-        <button
-          type="submit"
-          class="add-to-cart-button__btn button {{ block.settings.button_style }} w-full"
-          {% unless atc_variant.available %}disabled{% endunless %}>
-          {{- block.settings.button_label | default: 'Add to Cart' -}}
-        </button>
-      </form>
+      {%- render "component__add-to-cart-button",
+        product: block.settings.product,
+        button_class: block.settings.button_style,
+        button_label: block.settings.button_label,
+        form_class: "add-to-cart-button__form w-full",
+        button_class: "w-full" -%}
     {%- else -%}
       <button type="button" class="add-to-cart-button__btn button {{ block.settings.button_style }} w-full">
         {{- block.settings.button_label | default: 'Add to Cart' -}}
