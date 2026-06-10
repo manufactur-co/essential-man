@@ -189,8 +189,10 @@ window.addEventListener("hashchange", () => {
   const $el = document.querySelector(window.location.hash)
   if (!$el) return
 
-  Alpine.store(window.location.hash.replace("#", "")).openPopup()
-  Alpine.store(window.location.hash.replace("#", "")).openOffcanvas()
+  const storeKey = window.location.hash.replace("#", "")
+  const store = Alpine.store(storeKey)
+  store?.openPopup?.()
+  store?.openOffcanvas?.()
 })
 
 document.addEventListener("click", (e) => {

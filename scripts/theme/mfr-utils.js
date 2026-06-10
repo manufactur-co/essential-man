@@ -1,9 +1,30 @@
 window.addEventListener("load", () => {
   const hash = window.location.hash;
-  if (hash) {
-    const target = document.querySelector(hash);
-    if (target) target.scrollIntoView({ behavior: "smooth" });
-  }
+  if (!hash) return;
+
+  const target = document.querySelector(hash);
+  if (!target) return;
+
+  const getHeaderHeight = () => {
+    const header = document.querySelector("header.header");
+    return header ? header.offsetHeight : 0;
+  };
+
+  const scrollToTarget = (smooth) => {
+    const headerHeight = getHeaderHeight();
+    const top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+    window.scrollTo({ top, behavior: smooth ? "smooth" : "instant" });
+  };
+
+  scrollToTarget(false);
+
+  setTimeout(() => {
+    const headerHeight = getHeaderHeight();
+    const distanceFromTop = target.getBoundingClientRect().top;
+    if (distanceFromTop > headerHeight + 100) {
+      scrollToTarget(true);
+    }
+  }, 1200);
 });
 
 // For browser resize horizontally
