@@ -1884,7 +1884,7 @@
                   "settings": {
                     "image_max_width_mobile": 0,
                     "image_max_width_desktop": 0,
-                    "text": "most powders",
+                    "text": "{{ closest.product.metafields.mfr_fields.comparison_chart_header.value }}",
                     "font_family": "font-heading-h4",
                     "enable_font_settings": true,
                     "font_case": "uppercase",
