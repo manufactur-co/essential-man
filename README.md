@@ -891,7 +891,7 @@ When creating a new section, create `styles/sections/<filename>.scss`:
 
 ## Privacy — CCPA "Do Not Sell or Share My Personal Information"
 
-`mfr-global.js` includes a click handler for CCPA opt-out. No third-party app or the Audiences app is required.
+`mfr-global.js` includes a click handler for CCPA opt-out using Shopify's built-in Customer Privacy API. No third-party app or the Audiences app is required.
 
 ### How it works
 
@@ -903,10 +903,11 @@ Any `<a>` tag with `href="#do-not-share-my-personal-info"` on the page will trig
 
 When clicked, the handler:
 1. Prevents the default anchor navigation
-2. Sets a `mfr_do_not_sell=1` cookie that expires in 365 days (uses the global `setCookie` utility)
-3. Updates the link text to `"Preference saved."`
+2. Loads the `consent-tracking-api` feature via `window.Shopify.loadFeatures` (the API is not available by default — it must be explicitly loaded)
+3. Calls `window.Shopify.customerPrivacy.setTrackingConsent({ sale_of_data: false })`
+4. Updates the link text to `"Preference saved."` on success
 
-Read this cookie server-side in Liquid (`request.cookies["mfr_do_not_sell"]`) or client-side via `getCookie("mfr_do_not_sell")` to conditionally suppress tracking scripts for opted-out visitors.
+Shopify's Customer Privacy API is only active for visitors from regions where it's legally required (California for CCPA, EU for GDPR) — configured via **Settings → Customer privacy → Use automated settings**. The handler silently no-ops on error for all other visitors.
 
 ### Where to add the link
 

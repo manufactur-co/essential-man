@@ -224,9 +224,14 @@ document.addEventListener("click", (e) => {
 
   e.preventDefault()
 
-  if (!window.Shopify?.customerPrivacy) return
+  window.Shopify.loadFeatures(
+    [{ name: "consent-tracking-api", version: "0.1" }],
+    (error) => {
+      if (error) return
 
-  window.Shopify.customerPrivacy.setTrackingConsent({ sale_of_data: false }, () => {
-    anchor.textContent = "Preference saved."
-  })
+      window.Shopify.customerPrivacy.setTrackingConsent({ sale_of_data: false }, () => {
+        anchor.textContent = "Preference saved."
+      })
+    }
+  )
 })
