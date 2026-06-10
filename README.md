@@ -331,7 +331,7 @@ These run on every page and are compiled to `assets/<name>.min.js`.
 
 | File | Purpose |
 |------|---------|
-| `mfr-global.js` | Lozad lazy loading, sticky header (120px threshold), quicklink prefetching, external links target, hash-based offcanvas/popup triggers |
+| `mfr-global.js` | Lozad lazy loading, sticky header (120px threshold), quicklink prefetching, external links target, hash-based offcanvas/popup triggers, CCPA "Do Not Sell" opt-out |
 | `mfr-utils.js` | `onWidthResize()`, `onHeightResize()`, `onViewportChange()` — ResizeObserver + MediaQuery helpers |
 | `mfr-alpine-functions.js` | Registers `Alpine.store("methods")` with `isMobile` state (updates on resize, true ≤ 1024px) |
 | `mfr-alpine-global-states.js` | Other global Alpine stores |
@@ -886,6 +886,31 @@ When creating a new section, create `styles/sections/<filename>.scss`:
 ```
 
 `<sub-name>` is the part after `__` in the section filename (e.g. `mfr-core__accordion-section` → `accordion-section`). Import `"../site-specifics"` only when the section needs project-specific variables.
+
+---
+
+## Privacy — CCPA "Do Not Sell or Share My Personal Information"
+
+`mfr-global.js` includes a click handler for CCPA opt-out. No third-party app or the Audiences app is required.
+
+### How it works
+
+Any `<a>` tag with `href="#do-not-share-my-personal-info"` on the page will trigger the opt-out when clicked:
+
+```html
+<a href="#do-not-share-my-personal-info">Do Not Sell or Share My Personal Information</a>
+```
+
+When clicked, the handler:
+1. Prevents the default anchor navigation
+2. Sets a `mfr_do_not_sell=1` cookie that expires in 365 days (uses the global `setCookie` utility)
+3. Updates the link text to `"Preference saved."`
+
+Read this cookie server-side in Liquid (`request.cookies["mfr_do_not_sell"]`) or client-side via `getCookie("mfr_do_not_sell")` to conditionally suppress tracking scripts for opted-out visitors.
+
+### Where to add the link
+
+Add the link to your footer or privacy policy page via the Shopify editor. No code changes needed — the handler is always active.
 
 ---
 

@@ -217,3 +217,16 @@ document.addEventListener("click", (e) => {
     store.openOffcanvas()
   }
 })
+
+document.addEventListener("click", (e) => {
+  const anchor = e.target.closest("a[href='#do-not-share-my-personal-info']")
+  if (!anchor) return
+
+  e.preventDefault()
+
+  if (!window.Shopify?.customerPrivacy) return
+
+  window.Shopify.customerPrivacy.setTrackingConsent({ sale_of_data: false }, () => {
+    anchor.textContent = "Preference saved."
+  })
+})
