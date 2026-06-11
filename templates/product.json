@@ -2727,7 +2727,7 @@
       }
     },
     "mfr_core_customer_testimonials_qGCeFD": {
-      "type": "mfr-core__customer-testimonials",
+      "type": "mfr-product__customer-testimonials",
       "blocks": {
         "section-content": {
           "type": "_section-content",
@@ -2959,96 +2959,20 @@
             "section_content_title_7Qp4my"
           ]
         },
-        "customer-testimonials-carousel": {
-          "type": "_customer-testimonials__carousel",
+        "product-customer-testimonials-carousel": {
+          "type": "_product-customer-testimonials__carousel",
           "static": true,
           "settings": {
             "render_carousel_on": "",
-            "page_dots": true,
+            "page_dots": false,
             "custom_page_dots": false,
             "carousel_caption": "",
-            "gap_mobile": 20,
-            "gap_desktop": 20
+            "gap_mobile": 15,
+            "gap_desktop": 30,
+            "width_mobile": 300,
+            "width_desktop": 300
           },
-          "blocks": {
-            "customer_testimonials_item_v4_B7XqTA": {
-              "type": "_customer-testimonials__item-v4",
-              "settings": {
-                "video": "shopify://files/videos/file_example_MP4_480_1_5MG.mp4",
-                "image": "shopify://shop_images/Generated_with_Kive.ai_-_create_a_realistic_action_image_of_a_man_using_this_hair_texture_powder_spray._the_image_should_feel_minimal_and_be_in_a_minimal__modern_bathroom._it_should_f.jpg",
-                "product": "texture-powder",
-                "star_rating": 5,
-                "reviewer_name": "Marcus.l",
-                "hair_type": "Medium wavy hair",
-                "width_mobile": 300,
-                "width_desktop": 300
-              },
-              "blocks": {}
-            },
-            "customer_testimonials_item_v4_FMfMtP": {
-              "type": "_customer-testimonials__item-v4",
-              "settings": {
-                "video": "shopify://files/videos/file_example_MP4_480_1_5MG.mp4",
-                "image": "shopify://shop_images/Generated_with_Kive.ai_-_kive-image_19_1.webp",
-                "product": "matte-clay",
-                "star_rating": 5,
-                "reviewer_name": "Christian.m",
-                "hair_type": "Fine curly hair",
-                "width_mobile": 300,
-                "width_desktop": 300
-              },
-              "blocks": {}
-            },
-            "customer_testimonials_item_v4_KDyiyb": {
-              "type": "_customer-testimonials__item-v4",
-              "settings": {
-                "video": "shopify://files/videos/file_example_MP4_480_1_5MG.mp4",
-                "image": "shopify://shop_images/Generated_with_Kive.ai_-_generate_an_image_of_these_products_in_a_bathroom._the_image_should_be_taken_on_an_iPhone_14_like_it_is_a_UGC_shot_for_the_products._the_quality_should_look_l.webp",
-                "product": "texture-powder",
-                "star_rating": 5,
-                "reviewer_name": "Jeremiah.n",
-                "hair_type": "Thick straight hair",
-                "width_mobile": 300,
-                "width_desktop": 300
-              },
-              "blocks": {}
-            },
-            "customer_testimonials_item_v4_XmzxQj": {
-              "type": "_customer-testimonials__item-v4",
-              "settings": {
-                "video": "shopify://files/videos/file_example_MP4_480_1_5MG.mp4",
-                "image": "shopify://shop_images/Generated_with_Kive.ai_-_kive-image_7_2.webp",
-                "product": "matte-clay",
-                "star_rating": 5,
-                "reviewer_name": "Neil.r",
-                "hair_type": "Medium thin hair",
-                "width_mobile": 300,
-                "width_desktop": 300
-              },
-              "blocks": {}
-            },
-            "customer_testimonials_item_v4_XNYrbD": {
-              "type": "_customer-testimonials__item-v4",
-              "settings": {
-                "video": "shopify://files/videos/file_example_MP4_480_1_5MG.mp4",
-                "image": "shopify://shop_images/em-image-mobile.webp",
-                "product": "texture-powder",
-                "star_rating": 5,
-                "reviewer_name": "Harrison.v",
-                "hair_type": "Thick straight hair",
-                "width_mobile": 300,
-                "width_desktop": 300
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "customer_testimonials_item_v4_B7XqTA",
-            "customer_testimonials_item_v4_FMfMtP",
-            "customer_testimonials_item_v4_KDyiyb",
-            "customer_testimonials_item_v4_XmzxQj",
-            "customer_testimonials_item_v4_XNYrbD"
-          ]
+          "blocks": {}
         },
         "accent-graphics": {
           "type": "_accent-graphics",
@@ -3058,11 +2982,18 @@
         }
       },
       "settings": {
+        "testimonials": "{{ product.metafields.mfr_fields.customer_testimonials.value }}",
+        "key_video": "video",
+        "key_image": "image",
+        "key_product": "product",
+        "key_star_rating": "star_rating",
+        "key_reviewer_name": "reviewer_name",
+        "key_hair_type": "hair_type",
         "container_width": "full",
         "max_width": 0,
         "grid_gutter": "",
         "mobile_alignment": "left",
-        "desktop_alignment": "center",
+        "desktop_alignment": "left",
         "color_scheme": "scheme-1",
         "top_spacing_mobile": 42,
         "bottom_spacing_mobile": 50,
@@ -3231,7 +3162,7 @@
         "top_spacing_desktop": 50,
         "bottom_spacing_desktop": 50,
         "bg_color": "#D5D1C8",
-        "section_divider_top": "line",
+        "section_divider_top": "",
         "section_divider_bottom": "",
         "custom_class": "",
         "custom_id": ""

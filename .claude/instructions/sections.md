@@ -44,6 +44,20 @@ SCSS is for **exceptions only** — schema `"class"` rules and third-party gener
 | `mfr-<template>__<name>` | Template-bound (product, collection, article, blog, search, metaobjects) |
 | `header`, `footer`, `offcanvas`, `modals` | Part-specific — section group exclusive |
 
+## Conditional Section Visibility
+
+When a section should be hidden based on an empty setting, wrap the entire `<section>` HTML in an `else` branch — never inject `display: none` alongside a rendered section:
+
+```liquid
+{%- if section.settings.some_setting == blank -%}
+  <style>#shopify-section-{{ section.id }} { display: none; }</style>
+{%- else -%}
+  <section ...>
+    ...
+  </section>
+{%- endif -%}
+```
+
 ## Section Groups
 
 Current groups: `header`, `footer`, `offcanvas` (`custom.offcanvas`), `modals` (`custom.modals`).

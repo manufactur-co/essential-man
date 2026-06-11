@@ -1,0 +1,262 @@
+<style>
+  #shopify-block-{{ block.id }} .customer-testimonials__entry-v4 {
+    padding: 0 {{ block.settings.gap_mobile | divided_by: 2.00 }}px;
+  }
+  #shopify-block-{{ block.id }} .customer-testimonials__entry-v4:first-child {
+    padding-left: {{ block.settings.gap_mobile }}px;
+  }
+  #shopify-block-{{ block.id }} .customer-testimonials__entry-v4:last-child {
+    padding-right: {{ block.settings.gap_mobile }}px;
+  }
+  #shopify-block-{{ block.id }} .customer-testimonials__entry-v4-inner {
+    width: {{ block.settings.width_mobile }}px;
+  }
+  @media (min-width: 1024px) {
+    #shopify-block-{{ block.id }} .customer-testimonials__entry-v4 {
+      padding: 0 {{ block.settings.gap_desktop | divided_by: 2.00 }}px;
+    }
+    #shopify-block-{{ block.id }} .customer-testimonials__entry-v4:first-child {
+      padding-left: {{ block.settings.gap_desktop }}px;
+    }
+    #shopify-block-{{ block.id }} .customer-testimonials__entry-v4:last-child {
+      padding-right: {{ block.settings.gap_desktop }}px;
+    }
+    #shopify-block-{{ block.id }} .customer-testimonials__entry-v4-inner {
+      width: {{ block.settings.width_desktop }}px;
+    }
+  }
+</style>
+<div class="customer-testimonials {% if block.settings.carousel_caption != blank %}has-caption{% endif %} w-full [justify-content:inherit]">
+  {%- capture metaobject_slides -%}
+    {%- for entry in section.settings.testimonials -%}
+      {%- assign media_video = entry[section.settings.key_video].value -%}
+      {%- assign media_image = entry[section.settings.key_image].value -%}
+      {%- assign entry_product = entry[section.settings.key_product].value -%}
+      {%- assign star_rating = entry[section.settings.key_star_rating].value | append: "" | plus: 0 | round -%}
+      {%- assign reviewer_name = entry[section.settings.key_reviewer_name].value -%}
+      {%- assign hair_type = entry[section.settings.key_hair_type].value -%}
+
+      <div class="customer-testimonials__entry customer-testimonials__entry-v4 mfr-carousel__item">
+        <div class="customer-testimonials__entry-v4-inner flex flex-col">
+          <div class="customer-testimonials__entry-v4-card flex flex-col overflow-hidden border border-solid border-[color:var(--section-heading)] bg-white mb-[18px]">
+            <div class="customer-testimonials__entry-v4-media relative aspect-[300/525] [&_.mfr-video-with-controls]:w-full [&_.mfr-video-with-controls]:h-full [&_video]:w-full [&_video]:h-full [&_video]:object-cover [&_img]:w-full [&_img]:h-full [&_img]:object-cover [&>.mfr-video-with-controls]:absolute">
+              {%- if media_video != blank -%}
+                {%- render 'component__video-with-controls',
+                  block_id: block.id,
+                  video: media_video,
+                  poster_size: block.settings.width_desktop,
+                  autoplay: false,
+                  loop: false,
+                  controls: false,
+                  muted: false,
+                  poster: media_image,
+                  show_play_button: true,
+                  show_speaker_button: true,
+                  show_indicator: true,
+                  without_wrapper: false -%}
+              {%- else -%}
+                {%- render 'component__lazyload-image',
+                  image: media_image,
+                  width: 600,
+                  alt: reviewer_name,
+                  placeholder_size: "tall" -%}
+              {%- endif -%}
+
+              <div class="customer-testimonials__entry-v4-gradient absolute top-0 left-0 w-full h-[79px] bg-gradient-to-b from-black/30 to-transparent pointer-events-none"></div>
+            </div>
+
+            <div class="customer-testimonials__entry-v4-footer bg-[#d5d1c8] flex items-center justify-between gap-[12px] px-[12px] py-[9px]">
+              <div class="customer-testimonials__entry-v4-info flex flex-col gap-[4px]">
+                {%- if entry_product != blank -%}
+                  <div class="customer-testimonials__entry-v4-title [font-family:var(--font-heading-h5)] text-[15px] large:text-[16px] font-[500] uppercase leading-none [color:var(--section-heading)]">
+                    <p>{{ entry_product.title }}</p>
+                  </div>
+                {%- endif -%}
+                <div class="customer-testimonials__entry-v4-stars w-[68px] [&>svg]:w-full">
+                  {%- render 'icon__stars', count: star_rating -%}
+                </div>
+              </div>
+
+              {%- if entry_product != blank -%}
+                <a href="{{ entry_product.url }}" class="customer-testimonials__entry-v4-button button tertiary shrink-0 w-[72px] !min-h-[34px] !py-[11px] !px-[20px] !text-[13px]">Shop</a>
+              {%- endif -%}
+            </div>
+          </div>
+
+          {%- if reviewer_name != blank or hair_type != blank -%}
+            <div class="customer-testimonials__entry-v4-attribution [font-family:var(--font-heading-h6)] text-[13px] font-[700] leading-[1.4] uppercase [color:var(--section-heading)]">
+              <p>{{- reviewer_name -}}{%- if reviewer_name != blank and hair_type != blank %} – {% endif %}{{- hair_type -}}</p>
+            </div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  {%- endcapture -%}
+
+  {%- capture manual_slides -%}
+    {%- content_for "blocks" -%}
+  {%- endcapture -%}
+
+  {%- capture slides_content -%}{{ metaobject_slides }}{{ manual_slides }}{%- endcapture -%}
+
+  {%- if section.settings.testimonials != blank or manual_slides != blank -%}
+    {%- if block.settings.carousel_caption != blank -%}
+      <p class="customer-testimonials__carousel-caption"
+        data-inview>
+        {% render 'shortcode-renderer', text: block.settings.carousel_caption %}
+      </p>
+    {%- endif -%}
+    {%- capture settings -%}
+      {
+        contain: true,
+        wrapAround: false,
+        groupCells: true,
+        draggable: true,
+        cellAlign: "left",
+        pageDots: {{ block.settings.page_dots }},
+        prevNextButtons: false,
+        renderCarouselOn: "{{ block.settings.render_carousel_on }}",
+        customPageDots: {{ block.settings.custom_page_dots }},
+        mobileSettings: {
+          cellAlign: "center",
+          wrapAround: false,
+        }
+      }
+    {%- endcapture -%}
+    {%- capture class -%}
+      customer-testimonials__carousel
+      {% if block.settings.render_carousel_on == "mobile" -%}mobile--carousel{%- endif -%}
+      {% if block.settings.render_carousel_on == "desktop" -%}desktop--carousel{%- endif -%}
+      {% if block.settings.render_carousel_on == "none" -%}none--carousel{%- endif -%}
+    {%- endcapture -%}
+    {% render 'mfr-component__carousel',
+      settings: settings,
+      class: class,
+      content: slides_content
+    %}
+  {%- elsif request.design_mode -%}
+    <div class="customer-testimonials__carousel mfr-carousel">
+      {% for i in (1..6) %}
+        <div class="customer-testimonials__entry customer-testimonials__entry-v4 mfr-carousel__item px-[var(--gap-mobile)] large:px-[var(--gap-desktop)]">
+          <div class="customer-testimonials__entry-v4-inner flex flex-col">
+            <div class="customer-testimonials__entry-v4-card flex flex-col overflow-hidden border border-solid border-[color:var(--section-heading)] bg-white mb-[18px]">
+              <div class="customer-testimonials__entry-v4-media relative aspect-[300/525] [&_img]:w-full [&_img]:h-full [&_img]:object-cover">
+                {%- render 'component__lazyload-image',
+                  image: false,
+                  width: 600,
+                  placeholder_size: "tall" -%}
+              </div>
+              <div class="customer-testimonials__entry-v4-footer bg-[#d5d1c8] flex items-center justify-between gap-[12px] px-[12px] py-[9px]">
+                <div class="customer-testimonials__entry-v4-info flex flex-col gap-[4px]">
+                  <div class="customer-testimonials__entry-v4-title [font-family:var(--font-heading-h5)] text-[15px] large:text-[16px] font-[500] uppercase leading-none [color:var(--section-heading)]">
+                    <p>Product Name</p>
+                  </div>
+                  <div class="customer-testimonials__entry-v4-stars w-[68px] [&>svg]:w-full">
+                    {%- render 'icon__stars', count: 5 -%}
+                  </div>
+                </div>
+                <a href="#" class="customer-testimonials__entry-v4-button button tertiary shrink-0 w-[72px] !min-h-[34px] !py-[11px] !px-[20px] !text-[13px]">Shop</a>
+              </div>
+            </div>
+            <div class="customer-testimonials__entry-v4-attribution [font-family:var(--font-heading-h6)] text-[13px] font-[700] leading-[1.4] uppercase [color:var(--section-heading)]">
+              <p>Reviewer Name – Hair Type</p>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {%- endif -%}
+</div>
+
+{%- schema -%}
+  {
+    "name": "Testimonials Carousel",
+    "class": "customer-testimonials__wrapper",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Carousel Settings"
+      },
+      {
+        "type": "select",
+        "id": "render_carousel_on",
+        "label": "Render Carousel On:",
+        "options": [
+          {
+            "value": "",
+            "label": "Both"
+          },
+          {
+            "value": "mobile",
+            "label": "Mobile Only"
+          },
+          {
+            "value": "desktop",
+            "label": "Desktop Only"
+          },
+          {
+            "value": "none",
+            "label": "None"
+          }
+        ],
+        "default": ""
+      },
+      {
+        "type": "checkbox",
+        "id": "page_dots",
+        "label": "Page Dots",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "custom_page_dots",
+        "label": "Custom Page Dots (progress bar)",
+        "default": false
+      },
+      {
+        "type": "textarea",
+        "id": "carousel_caption",
+        "label": "Carousel Caption"
+      },
+      {
+        "type": "header",
+        "content": "Gap Settings"
+      },
+      {
+        "type": "number",
+        "id": "gap_mobile",
+        "label": "Item Gap - Mobile",
+        "default": 15,
+        "info": "in pixels. Applied as left/right padding per item."
+      },
+      {
+        "type": "number",
+        "id": "gap_desktop",
+        "label": "Item Gap - Desktop",
+        "default": 30,
+        "info": "in pixels. Applied as left/right padding per item."
+      },
+      {
+        "type": "header",
+        "content": "Width Settings"
+      },
+      {
+        "type": "number",
+        "id": "width_mobile",
+        "label": "Card Width - Mobile",
+        "default": 300,
+        "info": "in pixels"
+      },
+      {
+        "type": "number",
+        "id": "width_desktop",
+        "label": "Card Width - Desktop",
+        "default": 300,
+        "info": "in pixels"
+      }
+    ],
+    "blocks": [
+      { "type": "_customer-testimonials__item-v4" }
+    ]
+  }
+{%- endschema -%}

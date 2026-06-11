@@ -1757,6 +1757,9 @@
   .px-\[21px\] {
     padding-inline: 21px;
   }
+  .px-\[var\(--gap-mobile\)\] {
+    padding-inline: var(--gap-mobile);
+  }
   .px-\[var\(--grid-container-padding-mobile\)\] {
     padding-inline: var(--grid-container-padding-mobile);
   }
@@ -3696,6 +3699,11 @@
   .large\:px-\[3\.75rem\] {
     @media (width >= 1024px) {
       padding-inline: 3.75rem;
+    }
+  }
+  .large\:px-\[var\(--gap-desktop\)\] {
+    @media (width >= 1024px) {
+      padding-inline: var(--gap-desktop);
     }
   }
   .large\:px-\[var\(--grid-container-padding-desktop\)\] {

@@ -1,0 +1,472 @@
+{%- comment -%}
+--------------------------------------
+assign section settings to variables
+--------------------------------------
+{%- endcomment -%}
+
+{%- liquid
+  assign section_id = section.settings.custom_id | default: section.id
+  assign custom_class = section.settings.custom_class
+  assign container_width = section.settings.container_width
+  assign max_width = section.settings.max_width
+  assign grid_gutter = section.settings.grid_gutter
+  assign color_theme = section.settings.color_theme
+-%}
+
+{% render 'style-tags__section', asset_file_name: "mfr-product__customer-testimonials.css" %}
+{% render 'renderer__color-scheme', name: "section", color_scheme: section.settings.color_scheme, selector: ".shopify-section", section_id: section_id %}
+
+{%- if max_width != 0 and container_width == "" -%}
+  {%- capture max_width_style -%}
+    style="max-width: {{ max_width }}rem;"
+  {%- endcapture -%}
+{%- endif -%}
+
+{% capture spacer %}
+  --top-spacing-mobile: {{ section.settings.top_spacing_mobile | default: 100}}px;
+  --bottom-spacing-mobile: {{ section.settings.bottom_spacing_mobile | default: 100 }}px;
+  --top-spacing-desktop: {{ section.settings.top_spacing_desktop | default: 100 }}px;
+  --bottom-spacing-desktop: {{ section.settings.bottom_spacing_desktop | default: 100 }}px;
+{% endcapture %}
+
+{% render 'section__settings-styles' %}
+
+{%- if section.settings.testimonials == blank and request.design_mode == false -%}
+  <style>#shopify-section-{{ section.id }} { display: none; }</style>
+{%- else -%}
+  <section class="mfr-product__customer-testimonials {{ custom_class }} {{ grid_gutter }} overflow-hidden" id="{{ section_id }}">
+    <div class="section-spacer background {{ grid_gutter }} relative z-[3] pt-[var(--top-spacing-mobile)] pb-[var(--bottom-spacing-mobile)] large:pt-[var(--top-spacing-desktop)] large:pb-[var(--bottom-spacing-desktop)]" style="{{ spacer }}">
+      <div class="grid-container{% if container_width == 'full' %} full max-w-none px-0{% else %} mx-auto max-w-[var(--grid-container-max-width)] px-[var(--grid-container-padding-mobile)] large:px-[var(--grid-container-padding-desktop)]{% endif %} w-full relative z-[1]" {{ max_width_style }}>
+        <div class="alignment-helper {{ color_theme }} flex flex-row flex-wrap [justify-content:var(--justify-content-mobile)] [text-align:var(--text-align-mobile)] large:[justify-content:var(--justify-content-desktop)] large:[text-align:var(--text-align-desktop)]">
+          <div class="section-content w-full min-w-0 relative z-[2] flex [align-items:inherit] [justify-content:inherit] flex-wrap gap-x-[1.875rem] mb-[5rem] last:mb-0 large:mb-[5.625rem] large:gap-x-[3.75rem] [&>.shopify-block:not(:last-child)]:mb-[0.9375rem] large:[&>.shopify-block:not(:last-child)]:mb-[1.875rem] empty:hidden [&:not(:last-child)]:mb-[3.75rem] [&_.star-rating-text]:px-[1.25rem] large:[&_.star-rating-text]:px-[3.125rem] [&_.star-rating-text:not(:last-child)]:mb-[0.9375rem]"
+            data-stagger-inview=".section-icon__wrapper, .section-content__small-text, .section-content__text, .section-content__button">
+            {%- content_for "block", type: "_section-content", id: "section-content" -%}
+            {%- content_for "blocks" -%}
+          </div>
+          {%- content_for "block", type: "_product-customer-testimonials__carousel", id: "product-customer-testimonials-carousel" -%}
+        </div>
+      </div>
+
+      {%- render 'component__gradient-bg-styles' -%}
+    </div>
+    {%- render 'component__section-dividers', is_video_background: true -%}
+    {% content_for "block", type: "_accent-graphics", id: "accent-graphics" %}
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Customer Testimonials",
+  "disabled_on": {
+    "groups": [
+      "header",
+      "footer",
+      "custom.offcanvas",
+      "custom.modals"
+    ]
+  },
+  "settings": [
+    {
+      "type": "header",
+      "content": "Testimonial Source"
+    },
+    {
+      "type": "metaobject_list",
+      "id": "testimonials",
+      "label": "Customer Testimonials",
+      "metaobject_type": "customer_testimonial",
+      "info": "Select entries from the Customer Testimonials metaobject (type: customer_testimonial)."
+    },
+    {
+      "type": "header",
+      "content": "Field Keys",
+      "info": "Enter the metaobject field handles matching your metaobject definition.",
+      "visible_if": "{{ section.settings.testimonials != blank }}"
+    },
+    {
+      "type": "text",
+      "id": "key_video",
+      "label": "Video Field Key",
+      "default": "video",
+      "visible_if": "{{ section.settings.testimonials != blank }}"
+    },
+    {
+      "type": "text",
+      "id": "key_image",
+      "label": "Image Field Key",
+      "default": "image",
+      "visible_if": "{{ section.settings.testimonials != blank }}"
+    },
+    {
+      "type": "text",
+      "id": "key_product",
+      "label": "Product Field Key",
+      "default": "product",
+      "visible_if": "{{ section.settings.testimonials != blank }}"
+    },
+    {
+      "type": "text",
+      "id": "key_star_rating",
+      "label": "Star Rating Field Key",
+      "default": "star_rating",
+      "info": "Must be a Rating field type on the metaobject.",
+      "visible_if": "{{ section.settings.testimonials != blank }}"
+    },
+    {
+      "type": "text",
+      "id": "key_reviewer_name",
+      "label": "Reviewer Name Field Key",
+      "default": "reviewer_name",
+      "visible_if": "{{ section.settings.testimonials != blank }}"
+    },
+    {
+      "type": "text",
+      "id": "key_hair_type",
+      "label": "Hair Type Field Key",
+      "default": "hair_type",
+      "visible_if": "{{ section.settings.testimonials != blank }}"
+    },
+    {
+      "type": "header",
+      "content": "Section Settings"
+    },
+    {
+      "type": "select",
+      "id": "container_width",
+      "options": [
+        {
+          "value": "full",
+          "label": "Full"
+        },
+        {
+          "value": "",
+          "label": "Contain"
+        }
+      ],
+      "label": "Width",
+      "default": "full"
+    },
+    {
+      "type": "range",
+      "id": "max_width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "rem",
+      "label": "Max Content Width",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "grid_gutter",
+      "options": [
+        {
+          "value": "",
+          "label": "No Margin"
+        },
+        {
+          "value": "grid-gutter-mobile",
+          "label": "On Mobile"
+        },
+        {
+          "value": "grid-gutter-desktop",
+          "label": "On Desktop"
+        },
+        {
+          "value": "grid-gutter-mobile grid-gutter-desktop",
+          "label": "On Both"
+        }
+      ],
+      "label": "Section Margin"
+    },
+    {
+      "type": "header",
+      "content": "Alignment Settings"
+    },
+    {
+      "type": "select",
+      "id": "mobile_alignment",
+      "label": "Content Alignment - Mobile",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "desktop_alignment",
+      "label": "Content Alignment - Desktop",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Color Schemes Settings"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "default": "scheme_1",
+      "label": "Color Scheme",
+      "info": "This will be the color scheme of the header initially."
+    },
+    {
+      "type": "header",
+      "content": "Mobile Section Spacing"
+    },
+    {
+      "type": "number",
+      "id": "top_spacing_mobile",
+      "label": "Top Spacing",
+      "default": 100,
+      "info": "in pixels. This will use 100px as default value if left empty"
+    },
+    {
+      "type": "number",
+      "id": "bottom_spacing_mobile",
+      "label": "Bottom Spacing",
+      "default": 100,
+      "info": "in pixels. This will use 100px as default value if left empty"
+    },
+    {
+      "type": "header",
+      "content": "Desktop Section Spacing"
+    },
+    {
+      "type": "number",
+      "id": "top_spacing_desktop",
+      "label": "Top Spacing",
+      "default": 100,
+      "info": "in pixels. This will use 100px as default value if left empty"
+    },
+    {
+      "type": "number",
+      "id": "bottom_spacing_desktop",
+      "label": "Bottom Spacing",
+      "default": 100,
+      "info": "in pixels. This will use 100px as default value if left empty"
+    },
+    {
+      "type": "header",
+      "content": "Background"
+    },
+    {
+      "type": "color_background",
+      "id": "bg_color",
+      "label": "Background Color/Gradient"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image_mobile",
+      "label": "Background Image - Mobile"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image - Desktop"
+    },
+    {
+      "type": "image_picker",
+      "id": "bg_texture",
+      "label": "Background Texture Image"
+    },
+    {
+      "type": "header",
+      "content": "Divider Settings"
+    },
+    {
+      "type": "select",
+      "id": "section_divider_top",
+      "label": "Section Divider - Top",
+      "options": [
+        {
+          "value": "",
+          "label": "None"
+        },
+        {
+          "value": "line",
+          "label": "Line"
+        },
+        {
+          "value": "rounded",
+          "label": "Rounded"
+        },
+        {
+          "value": "scale",
+          "label": "Scale"
+        }
+      ],
+      "default": ""
+    },
+    {
+      "type": "select",
+      "id": "section_divider_bottom",
+      "label": "Section Divider - Bottom",
+      "options": [
+        {
+          "value": "",
+          "label": "None"
+        },
+        {
+          "value": "line",
+          "label": "Line"
+        },
+        {
+          "value": "rounded",
+          "label": "Rounded"
+        }
+      ],
+      "default": ""
+    },
+    {
+      "type": "header",
+      "content": "Attribute Settings"
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom class"
+    },
+    {
+      "type": "text",
+      "id": "custom_id",
+      "label": "Custom ID"
+    }
+  ],
+  "blocks": [
+    { "type": "_section-content" },
+    { "type": "_star-rating-text" },
+    { "type": "_product-customer-testimonials__carousel" },
+    { "type": "_customer-testimonials__column" },
+    { "type": "_accent-graphics" }
+  ],
+  "presets": [
+    {
+      "name": "Customer Testimonials",
+      "category": "Product Sections",
+      "settings": {
+        "container_width": "full",
+        "max_width": 0,
+        "grid_gutter": "",
+        "mobile_alignment": "left",
+        "desktop_alignment": "center",
+        "color_scheme": "scheme-1",
+        "top_spacing_mobile": 42,
+        "bottom_spacing_mobile": 50,
+        "top_spacing_desktop": 50,
+        "bottom_spacing_desktop": 50,
+        "bg_color": "#eeece5",
+        "section_divider_top": "",
+        "section_divider_bottom": "",
+        "custom_class": "",
+        "custom_id": ""
+      },
+      "blocks": [
+        {
+          "type": "_section-content",
+          "id": "section-content",
+          "static": true,
+          "settings": {
+            "use_grid_container_max_width": true,
+            "mobile_alignment": "left",
+            "desktop_alignment": "left",
+            "vertical_alignment": "flex-start",
+            "text_color": "",
+            "background_color": "",
+            "enable_animated_bg": false,
+            "border_radius_mobile": 0,
+            "border_radius_desktop": 0,
+            "enable_width_settings": false,
+            "width_mobile": false,
+            "width_mobile_value": 0,
+            "width_mobile_custom": "",
+            "width_mobile_unit": "px",
+            "width_desktop": false,
+            "width_desktop_value": 0,
+            "width_desktop_custom": "",
+            "width_desktop_unit": "px",
+            "max_width_mobile": false,
+            "max_width_mobile_value": 0,
+            "max_width_mobile_custom": "",
+            "max_width_mobile_unit": "px",
+            "max_width_desktop": true,
+            "max_width_desktop_value": 1380,
+            "max_width_desktop_custom": "",
+            "max_width_desktop_unit": "px",
+            "enable_padding_settings": true,
+            "padding_x_mobile": true,
+            "padding_left_mobile": 20,
+            "padding_right_mobile": 20,
+            "padding_y_mobile": false,
+            "padding_top_mobile": 0,
+            "padding_bottom_mobile": 0,
+            "padding_x_desktop": true,
+            "padding_left_desktop": 30,
+            "padding_right_desktop": 30,
+            "padding_y_desktop": false,
+            "padding_top_desktop": 0,
+            "padding_bottom_desktop": 0,
+            "enable_margin_settings": false,
+            "margin_x_mobile": false,
+            "margin_left_mobile": 0,
+            "margin_right_mobile": 0,
+            "margin_y_mobile": false,
+            "margin_top_mobile": 0,
+            "margin_bottom_mobile": 0,
+            "margin_x_desktop": false,
+            "margin_left_desktop": 0,
+            "margin_right_desktop": 0,
+            "margin_y_desktop": false,
+            "margin_top_desktop": 0,
+            "margin_bottom_desktop": 0
+          }
+        },
+        {
+          "type": "_product-customer-testimonials__carousel",
+          "id": "product-customer-testimonials-carousel",
+          "static": true,
+          "settings": {
+            "render_carousel_on": "",
+            "page_dots": true,
+            "custom_page_dots": false,
+            "carousel_caption": "",
+            "gap_mobile": 20,
+            "gap_desktop": 20,
+            "width_mobile": 300,
+            "width_desktop": 300
+          }
+        },
+        {
+          "type": "_accent-graphics",
+          "id": "accent-graphics",
+          "static": true
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

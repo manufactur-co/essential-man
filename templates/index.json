@@ -2492,7 +2492,7 @@
         "max_width": 0,
         "grid_gutter": "",
         "mobile_alignment": "left",
-        "desktop_alignment": "center",
+        "desktop_alignment": "left",
         "color_scheme": "scheme-1",
         "top_spacing_mobile": 42,
         "bottom_spacing_mobile": 50,
