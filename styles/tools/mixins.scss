@@ -253,8 +253,7 @@
   }
   
   // Only keep dropdown open if focused via keyboard or focus is inside
-  &:focus-visible,
-  &:focus-within {
+  body.keyboard-nav &:focus-visible {
     @content;
   }
 }
@@ -817,8 +816,8 @@ $container-max-width-5: rem-calc( 2560px );
 }
 
 @mixin focused-styling {
-  outline: dashed rem-calc(1px) hsl(from currentColor h s l / 0.5) !important;
-	outline-offset: rem-calc(2px);
+  outline: dashed rem-calc(1px) currentColor !important;
+  outline-offset: rem-calc(3px);
 }
 
 /**

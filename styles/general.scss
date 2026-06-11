@@ -115,8 +115,9 @@ body.add-sticky-space {
 	width: 1px;
 }
 
-*:focus-visible {
-	@include focused-styling;
+body.keyboard-nav *:focus-visible {
+  outline: dashed rem-calc(1px) currentColor !important;
+  outline-offset: rem-calc(3px);
 }
 
 a,

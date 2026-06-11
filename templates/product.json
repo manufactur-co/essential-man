@@ -961,7 +961,7 @@
                   "type": "_section-content__title",
                   "settings": {
                     "heading": "{{ product.metafields.custom.product_features_title.value }}",
-                    "disable_animation": false,
+                    "disable_animation": true,
                     "enable_nobr": false,
                     "header_style": "h1",
                     "header_tag": "h2",
@@ -1372,7 +1372,7 @@
               "type": "_section-content__title",
               "settings": {
                 "heading": "{{ closest.product.metafields.mfr_fields.who_it_s_for_title.value }}",
-                "disable_animation": false,
+                "disable_animation": true,
                 "enable_nobr": false,
                 "header_style": "h1",
                 "header_tag": "h2",
@@ -1631,7 +1631,7 @@
               "type": "_section-content__title",
               "settings": {
                 "heading": "WHY IT'S DIFFERENT",
-                "disable_animation": false,
+                "disable_animation": true,
                 "enable_nobr": false,
                 "header_style": "h1",
                 "header_tag": "h2",
@@ -2899,7 +2899,7 @@
               "type": "_section-content__title",
               "settings": {
                 "heading": "From the men using it everyday.",
-                "disable_animation": false,
+                "disable_animation": true,
                 "enable_nobr": false,
                 "header_style": "h1",
                 "header_tag": "h2",
@@ -3074,7 +3074,7 @@
               "type": "_section-content__title",
               "settings": {
                 "heading": "Reviews",
-                "disable_animation": false,
+                "disable_animation": true,
                 "enable_nobr": false,
                 "header_style": "h1",
                 "header_tag": "h2",
@@ -3235,7 +3235,7 @@
               "type": "_section-content__title",
               "settings": {
                 "heading": "HOW TO USE",
-                "disable_animation": false,
+                "disable_animation": true,
                 "enable_nobr": false,
                 "header_style": "h1",
                 "header_tag": "h2",
@@ -3570,7 +3570,7 @@
                   "type": "_section-content__title",
                   "settings": {
                     "heading": "Key Ingredients",
-                    "disable_animation": false,
+                    "disable_animation": true,
                     "enable_nobr": false,
                     "header_style": "h1",
                     "header_tag": "h2",
@@ -4304,7 +4304,7 @@
                       "type": "_section-content__title",
                       "settings": {
                         "heading": "60-Day Performance Guarantee.",
-                        "disable_animation": false,
+                        "disable_animation": true,
                         "enable_nobr": false,
                         "header_style": "h2",
                         "header_tag": "h2",
@@ -4610,7 +4610,7 @@
                       "type": "_section-content__title",
                       "settings": {
                         "heading": "See what the formula is built on",
-                        "disable_animation": false,
+                        "disable_animation": true,
                         "enable_nobr": false,
                         "header_style": "h2",
                         "header_tag": "h2",

@@ -5,6 +5,22 @@ document.addEventListener("alpine:init", () => {
     contact: false,
     announcementBarHeight: 0,
   });
+
+  Alpine.store("inputMethod", {
+    isKeyboard: false,
+    init() {
+      document.addEventListener("pointerdown", () => {
+        this.isKeyboard = false;
+        document.body.classList.remove("keyboard-nav");
+      });
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Tab") {
+          this.isKeyboard = true;
+          document.body.classList.add("keyboard-nav");
+        }
+      });
+    },
+  });
 });
 
 document.addEventListener("alpine:initialized", () => {
