@@ -122,15 +122,13 @@ if (!window._mfrAlpineRegistered["MFRProductTop"]) {
       },
       updateUrl(property, value) {
         if ("URLSearchParams" in window) {
+          const url = new URL(window.location);
           if (value) {
-            const url = new URL(window.location);
             url.searchParams.set(property, value);
-            history.pushState(null, "", url);
           } else {
-            const url = new URL(window.location);
             url.searchParams.delete(property);
-            history.pushState(null, "", url);
           }
+          history.replaceState(null, "", url);
         }
       },
     }));
