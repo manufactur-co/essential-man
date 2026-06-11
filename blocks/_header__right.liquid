@@ -37,7 +37,7 @@
 {%- endif -%}
 
 {%- if block.settings.show_cart_cta -%}
-  <div class="header__cart {% if block.settings.show_cart_icon %}has-icon cursor-pointer relative flex items-center h-full py-[5px]{% else %}group cursor-pointer flex items-center h-full py-[6px] ml-[10px] min-w-[73px] large:min-w-[98px]{% endif %} cart"
+  <button class="header__cart {% if block.settings.show_cart_icon %}has-icon cursor-pointer relative flex items-center h-full py-[5px]{% else %}group cursor-pointer flex items-center h-full py-[6px] ml-[10px] min-w-[73px] large:min-w-[98px]{% endif %} cart"
     role="button"
     x-data
     x-on:click='$store["offCanvasCart"].openOffcanvas()'
@@ -59,7 +59,7 @@
         </span>
       </div>
     </div>
-  </div>
+  </button>
 {%- endif -%}
 
 {% schema %}

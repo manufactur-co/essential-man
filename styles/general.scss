@@ -116,8 +116,7 @@ body.add-sticky-space {
 }
 
 *:focus-visible {
-	outline: dashed rem-calc(1px) $color-body-text-alpha !important;
-	outline-offset: rem-calc(2px);
+	@include focused-styling;
 }
 
 a,
