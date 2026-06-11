@@ -2604,6 +2604,7 @@
       "block_order": [
         "scrolling_bar_carousel_Lm5qWz"
       ],
+      "disabled": true,
       "settings": {
         "container_width": "full",
         "max_width": 0,
