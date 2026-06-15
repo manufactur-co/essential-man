@@ -9,17 +9,25 @@
   x-init='
     Alpine.store("{{ id }}", {
       open: {{ initially_open | default: 'false' }},
-      
+      _savedScrollY: 0,
+
       openOffcanvas() {
+        this._savedScrollY = window.scrollY;
         this.open = true
       },
 
       closeOffcanvas() {
-        this.open = false
+        const y = this._savedScrollY;
+        this.open = false;
+        requestAnimationFrame(() => window.scrollTo(0, y));
       },
 
       toggleOffcanvas() {
-        this.open = !this.open
+        if (this.open) {
+          this.closeOffcanvas();
+        } else {
+          this.openOffcanvas();
+        }
       }
     })
 
@@ -28,7 +36,7 @@
     }
   '
   x-show='$store["{{ id }}"].open'
-  x-trap='$store["{{ id }}"].open'
+  x-trap.noreturn='$store["{{ id }}"].open'
   x-cloak
   :aria-hidden='open ? "false" : "true"'
   x-transition:enter-start="mfr-offcanvas--hidden"

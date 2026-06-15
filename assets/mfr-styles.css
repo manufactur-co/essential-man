@@ -786,9 +786,6 @@
   .min-h-\[var\(--banner-height-mobile\)\] {
     min-height: var(--banner-height-mobile);
   }
-  .min-h-auto {
-    min-height: auto;
-  }
   .min-h-full {
     min-height: 100%;
   }
