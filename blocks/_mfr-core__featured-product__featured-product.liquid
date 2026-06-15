@@ -1,7 +1,7 @@
 <div class="featured-product">
   <div class="featured-product__inner flex flex-col items-stretch large:flex-row large:gap-[30px] border-b border-[var(--carbon,#1e1b22)]">
 
-    <div class="featured-product__media aspect-[430/411] large:aspect-[932/710] w-full large:w-[64%] overflow-hidden bg-[#c4bfb3] relative shrink-0 large:border-r large:border-current">
+    <a class="featured-product__media aspect-[430/411] large:aspect-[932/710] w-full large:w-[64%] overflow-hidden bg-[#c4bfb3] relative shrink-0 large:border-r large:border-current"{% if block.settings.product != blank %} href="{{ block.settings.product.url }}"{% endif %}>
       {%- if block.settings.image != blank -%}
         {%- render "component__lazyload-image",
           image: block.settings.image,
@@ -10,7 +10,7 @@
       {%- else -%}
         <div class="w-full h-full bg-[#c4bfb3]"></div>
       {%- endif -%}
-    </div>
+    </a>
 
     <div class="featured-product__content px-[20px] pt-[20px] pb-[30px] large:p-[33px] large:w-[36%] flex flex-col gap-[61px] large:gap-[123px]">
 

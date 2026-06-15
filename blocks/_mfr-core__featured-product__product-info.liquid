@@ -17,7 +17,13 @@
 
     <div class="product-info__title-wrap flex flex-col gap-[10px] large:gap-[20px] large:pr-[30px]">
       {%- if block.settings.title != blank -%}
-        <div class="product-info__title [font-family:var(--font-heading-h4)] text-[34px] large:text-[46px] font-[500] leading-[1] uppercase [color:var(--section-heading)]"><p>{{- block.settings.title -}}</p></div>
+        <div class="product-info__title [font-family:var(--font-heading-h4)] text-[34px] large:text-[46px] font-[500] leading-[1] uppercase [color:var(--section-heading)]">
+          {%- if block.settings.product != blank -%}
+            <a href="{{ block.settings.product.url }}">{{- block.settings.title -}}</a>
+          {%- else -%}
+            <p>{{- block.settings.title -}}</p>
+          {%- endif -%}
+        </div>
       {%- endif -%}
 
       {%- if block.settings.show_price -%}
@@ -56,6 +62,16 @@
   "name": "Product Info",
   "class": "product-info",
   "settings": [
+    {
+      "type": "header",
+      "content": "Product Settings"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product",
+      "info": "Used to link the title to the product page. Set dynamic source to closest > product."
+    },
     {
       "type": "header",
       "content": "Label Settings"
