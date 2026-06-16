@@ -14,6 +14,15 @@ Shopify requires themes to pass **every** checkpoint. Each category has its own 
 
 ---
 
+## Workflow Rules
+
+1. **Work per numbered category** — address each category's checklist items in order.
+2. **Fix everything fixable in the codebase** — edit files, update Liquid/JSON/SCSS as needed.
+3. **Non-codebase items get logged, not blocked** — for items that require manual action outside the codebase (e.g. partner dashboard settings, store policies, listing content, manual submissions), create `theme-store-audit-notes.md` in the repo root and add an entry for that category listing those items. The category is still considered **done** — the notes file is for the user's manual follow-up after the codebase pass is complete.
+4. **Never leave a category unfinished** just because some items can't be resolved in code.
+
+---
+
 ## Progress
 
 | # | Category | File | Status | Notes |
