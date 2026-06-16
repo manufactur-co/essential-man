@@ -20,7 +20,7 @@ Shopify requires themes to pass **every** checkpoint. Each category has its own 
 |---|---|---|---|---|
 | 1 | Theme Store Exclusivity | [01-exclusivity.md](theme-store-audit/01-exclusivity.md) | `[!]` | Remove 4 dev credit instances (layout/theme.liquid, layout/password.liquid, _footer__copyright.liquid, footer__socket.liquid) |
 | 2 | Uniqueness from Other Themes | [02-uniqueness.md](theme-store-audit/02-uniqueness.md) | `[x]` | Proprietary codebase, no Dawn/Horizon; distinct section composition, UGC video strip, typographic banners |
-| 3 | Theme Design and UX | [03-design-ux.md](theme-store-audit/03-design-ux.md) | `[ ]` | |
+| 3 | Theme Design and UX | [03-design-ux.md](theme-store-audit/03-design-ux.md) | `[x]` | All checkpoints pass. Lorem Ipsum cleared, test scripts removed, search enabled. |
 | 4 | Features | [04-features.md](theme-store-audit/04-features.md) | `[ ]` | |
 | 5 | Templates, Sections, and Blocks | [05-templates-sections-blocks.md](theme-store-audit/05-templates-sections-blocks.md) | `[ ]` | |
 | 6 | Lighthouse Performance & Accessibility | [06-lighthouse.md](theme-store-audit/06-lighthouse.md) | `[ ]` | |
