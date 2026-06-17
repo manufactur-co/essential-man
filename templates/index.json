@@ -38,7 +38,7 @@
                 "section_content_wrapper_HeroEm": {
                   "type": "_section-content",
                   "settings": {
-                    "use_grid_container_max_width": true,
+                    "use_grid_container_max_width": false,
                     "enable_sticky": false,
                     "sticky_position": "top",
                     "sticky_offset": 100,
@@ -68,7 +68,7 @@
                     "max_width_desktop_custom": "",
                     "max_width_desktop_unit": "px",
                     "enable_padding_settings": true,
-                    "padding_x_mobile": false,
+                    "padding_x_mobile": true,
                     "padding_left_mobile": 20,
                     "padding_right_mobile": 20,
                     "padding_y_mobile": false,
