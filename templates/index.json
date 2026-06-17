@@ -38,7 +38,7 @@
                 "section_content_wrapper_HeroEm": {
                   "type": "_section-content",
                   "settings": {
-                    "use_grid_container_max_width": false,
+                    "use_grid_container_max_width": true,
                     "enable_sticky": false,
                     "sticky_position": "top",
                     "sticky_offset": 100,
@@ -2238,11 +2238,11 @@
                 "width_desktop_custom": "",
                 "width_desktop_unit": "px",
                 "max_width_mobile": true,
-                "max_width_mobile_value": 81,
+                "max_width_mobile_value": 160,
                 "max_width_mobile_custom": "",
                 "max_width_mobile_unit": "px",
                 "max_width_desktop": true,
-                "max_width_desktop_value": 78,
+                "max_width_desktop_value": 160,
                 "max_width_desktop_custom": "",
                 "max_width_desktop_unit": "px",
                 "enable_padding_settings": false,
