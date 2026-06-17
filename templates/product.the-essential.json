@@ -3221,7 +3221,7 @@
         "container_width": "",
         "max_width": 50,
         "grid_gutter": "",
-        "mobile_alignment": "left",
+        "mobile_alignment": "center",
         "desktop_alignment": "center",
         "color_scheme": "",
         "top_spacing_mobile": 40,
