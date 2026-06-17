@@ -57,7 +57,7 @@
   {%- assign alt = block.settings.image.alt | default: default_alt -%}
   {%- render 'component__lazyload-image',
     image: block.settings.image,
-    width: 240,
+    width: 720,
     alt: alt -%}
 {%- elsif block.settings.text != blank -%}
   <p>{{ block.settings.text }}</p>
