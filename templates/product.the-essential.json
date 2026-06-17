@@ -2975,7 +2975,7 @@
                 "underline_color": "",
                 "enable_width_settings": true,
                 "width_mobile": true,
-                "width_mobile_value": 80,
+                "width_mobile_value": 100,
                 "width_mobile_custom": "",
                 "width_mobile_unit": "%",
                 "width_desktop": false,
