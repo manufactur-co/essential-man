@@ -134,15 +134,9 @@ button {
 
 /* BUTTON [ Add to Cart ] */
 .button.add-to-cart {
-  min-height: unset;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: rem-calc(13px) rem-calc(10px);
-
-  @include breakpoint( large up) {
-    padding: rem-calc(19px) rem-calc(10px) rem-calc(16px);
-  }
 
   span.text {
     padding: 0;
