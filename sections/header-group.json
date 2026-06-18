@@ -288,7 +288,7 @@
               "type": "_header__button",
               "name": "Button",
               "settings": {
-                "url": "#",
+                "url": "shopify://products/the-essential-system",
                 "label": "Try The Bundle",
                 "color_theme": "secondary"
               },
