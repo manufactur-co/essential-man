@@ -13,17 +13,22 @@
 				assign upsell_products = upsell_products | append: ","
 			endunless
 		endfor
+
+		assign suppress_variant_id = block.settings.suppress_if_product.first_available_variant.id
 	-%}
 
-	<div class="product-upsell px-[20px] py-[16px] flex flex-col gap-[10px]" x-show="!upsellsIncludedInCart" x-data="{
+	<div class="product-upsell px-[20px] py-[16px] flex flex-col gap-[10px]" x-show="!upsellsIncludedInCart && !suppressProductInCart" x-data="{
 		upsellsIncludedInCart: false,
+		suppressProductInCart: false,
 		upsellProducts: [{{ upsell_products }}],
+		suppressVariantId: {{ suppress_variant_id | default: 0 }},
 
 		init() {
 			this.$watch('$store.cart.cartData.items', data => {
 				if (data !== null && data !== undefined) {
 					const checksCartItems = this.upsellProducts.every(id => data.some(item => item.id === id))
 					this.upsellsIncludedInCart = checksCartItems
+					this.suppressProductInCart = this.suppressVariantId > 0 && data.some(item => item.id === this.suppressVariantId)
 				}
 			})
 		},
