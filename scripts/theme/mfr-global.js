@@ -38,6 +38,15 @@ function loadLozadImages() {
 }
 
 window.loadLozadImages = loadLozadImages;
+
+window.addEventListener("pageshow", (event) => {
+  if (!event.persisted) return;
+  loadLozadImages();
+  if (typeof ScrollTrigger !== "undefined") {
+    ScrollTrigger.refresh(true);
+  }
+});
+
 onReady(() => loadLozadImages(), true)
 document.addEventListener("shopify:section:load", loadLozadImages)
 
