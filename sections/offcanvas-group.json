@@ -310,6 +310,8 @@
           "settings": {
             "separate_name": true,
             "name_placeholder": "Name",
+            "first_name_placeholder": "First Name",
+            "last_name_placeholder": "Last Name",
             "email_placeholder": "Email address"
           }
         },
@@ -368,7 +370,8 @@
             "products": [
               "matte-clay",
               "texture-powder"
-            ]
+            ],
+            "suppress_if_product": "the-essential-system"
           }
         }
       },
