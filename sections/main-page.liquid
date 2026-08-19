@@ -37,10 +37,7 @@ assign section settings to variables
           <div class="inner">
             {% unless section.settings.hide_page_title %}
             <div class="main-page__title">
-              {% render "block__title", 
-                text: page.title | escape,
-                header_style: "h1"
-              %}
+              {% render "block__title", text: page.title, header_style: "h1" %}
             </div>
             {% endunless %}
             <div class="main-page__body">
@@ -378,3 +375,14 @@ assign section settings to variables
   ]
 }
 {% endschema %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% render \"block__title\", \n                text: page.title | escape,\n
+    \               header_style: \"h1\"\n              %}"
+  to: '{% render "block__title", text: page.title, header_style: "h1" %}'
+  position: 2345..2410
+{% endcomment %}

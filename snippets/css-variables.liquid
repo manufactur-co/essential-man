@@ -354,7 +354,7 @@ output font-face for custom fonts if they exist
     --overlay-color: {{ settings.overlay_color }};
     --overlay-color-alpha: {{ settings.overlay_color | color_modify: 'alpha', 0.8 }};
       {% if settings.body_background_image %}
-      --image-main-background: url({{ settings.body_background_image | asset_url "700x" }});
+      --image-main-background: url({{ settings.body_background_image | asset_url }});
       {% endif %}
     --global-border-radius: {{ settings.global_border_radius }}px;
     --global-border-width: {{ settings.global_border_width }}px;
@@ -552,3 +552,13 @@ output font-face for custom fonts if they exist
 
 
   {% endstyle %}
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{{ settings.body_background_image | asset_url "700x" }}'
+  to: "{{ settings.body_background_image | asset_url }}"
+  position: 17852..17900
+{% endcomment %}
