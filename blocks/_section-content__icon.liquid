@@ -2,8 +2,8 @@
 {% assign lottie_file_url = block.settings.file_lottie_url %}
 
 {%- capture sizes -%}
-  min(100vw,{{ block.settings.icon_width_mobile }}px),
-  (min-width: 1024px) min(100vw,{{ block.settings.icon_width_desktop }}px)
+  (min-width: 1024px) min(100vw,{{ block.settings.icon_width_desktop }}px),
+  min(100vw,{{ block.settings.icon_width_mobile }}px)
 {%- endcapture -%}
 
 {% assign width = block.settings.icon_width_desktop %}
