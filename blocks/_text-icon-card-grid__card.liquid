@@ -13,10 +13,12 @@
 
   <div class="text-icon-card-grid__card__footer flex flex-col gap-[8px]">
     {%- if block.settings.icon != blank -%}
+      {%- assign alt = block.settings.icon.alt | default: block.settings.title -%}
       <div class="text-icon-card-grid__card__icon-wrap size-[60px] large:size-[75px]">
         {%- render 'component__lazyload-image',
           image: block.settings.icon,
           width: 150,
+          alt: alt,
           class: "w-full h-auto block" -%}
       </div>
     {%- endif -%}
